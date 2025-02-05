@@ -396,11 +396,15 @@ export default function HomePage() {
         <h2>Live Webcam</h2>
         <p>Check out what&apos;s happening in real-time at Laurino&apos;s Tavern!</p>
         <div className="webcam-wrapper">
-          <iframe
-            src="https://www.youtube.com/embed/live_stream?channel=YOUR_CHANNEL_ID"
-            allowFullScreen
-            title="Some Title"
-          />
+        <iframe
+  src="https://streampros.net/player/live/rvm2php9"
+  width="610"
+  height="343"
+  frameBorder="0"
+  allowFullScreen
+  title="Live Stream"
+/>
+
         </div>
       </WebcamSection>
     </>
