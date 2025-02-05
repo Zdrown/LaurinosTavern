@@ -127,7 +127,7 @@ const AboutSection = styled.section`
 `;
 
 // CAROUSEL SECTION (Food) - Slightly larger
-export const CarouselSection = styled.section`
+const CarouselSection = styled.section`
   background: ${({ theme }) => theme.colors.secondaryDark};
   padding: 4rem 2rem;
   text-align: center;
@@ -161,7 +161,7 @@ export const CarouselSection = styled.section`
       align-items: center;
       justify-content: flex-start;
       padding: 1rem;
-      color: ${({ theme }) => theme.colors.primaryDark};
+      color: ${({ theme }) => theme.colors.primaryLight};
 
       h3 {
         margin-bottom: 0.75rem;
@@ -182,7 +182,7 @@ export const CarouselSection = styled.section`
 
 
 // CATERING SECTION (with tertiaryDark border)
-export const CateringSection = styled.section`
+const CateringSection = styled.section`
   background: ${({ theme }) => theme.colors.light};
   text-align: center;
   padding: 4rem 2rem;
@@ -271,7 +271,7 @@ const MerchSection = styled.section`
 
 
 // WEBCAM SECTION (with tertiaryDark border)
-export const WebcamSection = styled.section`
+ const WebcamSection = styled.section`
   background: ${({ theme }) => theme.colors.light};
   text-align: center;
   padding: 4rem 2rem;
