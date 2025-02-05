@@ -182,20 +182,44 @@ const CarouselSection = styled.section`
 
 
 // CATERING SECTION (with tertiaryDark border)
-const CateringSection = styled.section`
+
+
+
+ const CateringSection = styled.section`
   background: ${({ theme }) => theme.colors.light};
-  text-align: center;
   padding: 4rem 2rem;
   min-height: 70vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  /* Border using tertiaryDark */
   border: 2px solid ${({ theme }) => theme.colors.tertiaryDark};
+  display: flex;
+  justify-content: center;
+
+  /* Outer container for text + image side by side */
+  .content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;     /* vertically center content */
+    justify-content: center; /* horizontally center the entire block */
+    gap: 2rem;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  /* Text content on the left */
+  .text-content {
+    flex: 1;
+    text-align: left; /* or center if you prefer */
+  }
 
   h2 {
     color: ${({ theme }) => theme.colors.primaryDark};
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .subheading {
+    font-size: 0.9rem;
+    color: ${({ theme }) => theme.colors.primaryDark};
+    margin-bottom: 1.5rem;
   }
 
   p {
@@ -204,21 +228,54 @@ const CateringSection = styled.section`
   }
 
   .cta-button {
-    display: inline-block;      /* so width can shrink to fit */
-    width: fit-content;         /* ensures the button fits its content */
-    margin: 0 auto;            /* center horizontally */
-    padding: 0.75rem 1.25rem;  /* reduced padding for a smaller look */
+    display: inline-block;
+    width: fit-content;
+    padding: 0.75rem 1.25rem;
     background: ${({ theme }) => theme.colors.primaryDark};
     color: ${({ theme }) => theme.colors.primaryLight};
     text-decoration: none;
     border-radius: 2px;
     font-weight: 500;
+    margin-top: 1rem;
 
     &:hover {
       background: ${({ theme }) => theme.colors.lighterBlue};
     }
   }
+
+  /* Image container on the right */
+  .image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+
+    /* The SVG or img inside here */
+    img,
+    svg {
+      max-width: 1000px; /* Adjust as needed for your design */
+      height: 100vh;
+      display: block;
+    }
+  }
+
+  /* Responsive: stack in a column on smaller screens */
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    .content {
+      flex-direction: column;
+      text-align: center; /* so text is centered on mobile if desired */
+    }
+    .text-content {
+      order: 2; /* if you want text below the image on mobile, or remove if not needed */
+    }
+    .image-container {
+      order: 1;
+      margin-bottom: 2rem; /* space between image and text */
+    }
+  }
 `;
+
+
 // MERCH SECTION (unchanged)
 
 
@@ -384,13 +441,33 @@ export default function HomePage() {
       </div>
     </CarouselSection>
 
-      <CateringSection>
-        <h2>Hosting an Event?</h2>
-        <p>Our catering services are perfect for any gathering, large or small.</p>
-        <Link href="/catering" className="cta-button">
-          Learn More
-        </Link>
-      </CateringSection>
+    <CateringSection>
+      <div className="content">
+        {/* Left: text content */}
+        <div className="text-content">
+          <h2>Catering Services</h2>
+          <div className="subheading">
+            Professional on-site catering for every occasion
+          </div>
+          <p>
+            Our friendly team is ready to bring the party to you, complete with
+            custom menus, bar service, and more.
+          </p>
+          <a href="/catering-details" className="cta-button">
+            Learn More
+          </a>
+        </div>
+
+        {/* Right: SVG or image container */}
+        <div className="image-container">
+          <img
+            src="/Catering.svg"
+            alt="Mobile bar illustration"
+          />
+        </div>
+      </div>
+    </CateringSection>
+
 
       <MerchSection>
         <h2>Buy Our Merch</h2>
