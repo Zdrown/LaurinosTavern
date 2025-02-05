@@ -271,31 +271,41 @@ const MerchSection = styled.section`
 
 
 // WEBCAM SECTION (with tertiaryDark border)
-const WebcamSection = styled.section`
+export const WebcamSection = styled.section`
   background: ${({ theme }) => theme.colors.light};
   text-align: center;
   padding: 4rem 2rem;
-  min-height: 80vh;
+  min-height: 80vh; 
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* Border using tertiaryDark */
   border: 2px solid ${({ theme }) => theme.colors.tertiaryDark};
 
   h2 {
     color: ${({ theme }) => theme.colors.primaryDark};
     margin-bottom: 1rem;
   }
+
   .webcam-wrapper {
-    max-width: 600px;
-    margin: 0 auto;
+    /* Center the container and give it a max width for desktop */
+    max-width: 1200px; 
+    margin: 0 auto; 
+    width: 80%;
 
     iframe {
+      /* Fill the container’s width, automatically scale height */
       width: 100%;
-      height: 350px;
+      /* Use aspect-ratio for a fixed proportion (16:9 or ~610:343) */
+      aspect-ratio: 610 / 343;
       border: none;
       border-radius: 8px;
+      display: block; /* Removes default inline spacing */
     }
+  }
+
+  /* Mobile-friendly adjustments */
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    padding: 2rem 1rem;
   }
 `;
 
@@ -393,20 +403,16 @@ export default function HomePage() {
       </MerchSection>
 
       <WebcamSection>
-        <h2>Live Webcam</h2>
-        <p>Check out what&apos;s happening in real-time at Laurino&apos;s Tavern!</p>
-        <div className="webcam-wrapper">
-        <iframe
-  src="https://streampros.net/player/live/rvm2php9"
-  width="610"
-  height="343"
-  frameBorder="0"
-  allowFullScreen
-  title="Live Stream"
-/>
-
-        </div>
-      </WebcamSection>
+  <h2>Live Webcam</h2>
+  <p>Check out what's happening at Skaket Beach!</p>
+  <div className="webcam-wrapper">
+    <iframe
+      src="https://streampros.net/player/live/rvm2php9"
+      allowFullScreen
+      title="Live Stream"
+    />
+  </div>
+</WebcamSection>
     </>
   );
 }
