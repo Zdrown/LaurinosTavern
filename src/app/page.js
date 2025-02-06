@@ -212,9 +212,7 @@ const CarouselSection = styled.section`
 
 // CATERING SECTION (with tertiaryDark border)
 
-
-
- const CateringSection = styled.section`
+const CateringSection = styled.section`
   background: ${({ theme }) => theme.colors.light};
   padding: 4rem 2rem;
   min-height: 70vh;
@@ -283,28 +281,38 @@ const CarouselSection = styled.section`
     /* The SVG or img inside here */
     img,
     svg {
-      max-width: 900px; /* Adjust as needed for your design */
+      max-width: 900px; 
       height: 100vh;
       display: block;
     }
   }
 
-  /* Responsive: stack in a column on smaller screens */
+  /* Tablet breakpoint (example) */
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     .content {
       flex-direction: column;
-      text-align: center; /* so text is centered on mobile if desired */
+      text-align: center; /* center text on tablet/mobile if desired */
     }
+
     .text-content {
-      order: 2; /* if you want text below the image on mobile, or remove if not needed */
+      order: 2; /* text below image if you want */
     }
+
     .image-container {
       order: 1;
       margin-bottom: 2rem; /* space between image and text */
     }
   }
-`;
 
+  /* Mobile breakpoint (example) */
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    .image-container img,
+    .image-container svg {
+      max-width: 90%; /* or 100% */
+      height: auto;   /* let the height scale naturally */
+    }
+  }
+`;
 
 // MERCH SECTION (unchanged)
 

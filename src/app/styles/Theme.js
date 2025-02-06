@@ -29,7 +29,7 @@ const Theme = {
     // Sandy tan: highlights, hover states, or alternate sections
   },
   breakpoints: {
-    mobile: '480px',
+    mobile: '580px',
     tablet: '768px',
     desktop: '1024px',
   },
