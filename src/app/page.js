@@ -611,7 +611,7 @@ export default function HomePage() {
 
       <WebcamSection>
   <h2>Live Webcam</h2>
-  <p>Check out what's happening at Skaket Beach!</p>
+  <p>Check out what's happening locally!</p>
   <div className="webcam-wrapper">
     <iframe
       src="https://streampros.net/player/live/rvm2php9"
