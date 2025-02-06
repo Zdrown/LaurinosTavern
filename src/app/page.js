@@ -308,7 +308,7 @@ const CateringSection = styled.section`
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     .image-container img,
     .image-container svg {
-      max-width: 90%; /* or 100% */
+      max-width: 95%
       height: auto;   /* let the height scale naturally */
     }
   }
