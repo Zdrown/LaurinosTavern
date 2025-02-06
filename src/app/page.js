@@ -54,6 +54,7 @@ const HeroSection = styled.section`
     font-weight: 700;
     margin-bottom: 1rem;
     letter-spacing: 1px;
+       font-family: 'Aloja';
   }
 
   p {
@@ -403,6 +404,7 @@ const CTAButton = styled.button`
   h2 {
     color: ${({ theme }) => theme.colors.primaryDark};
     margin-bottom: 1rem;
+       font-family: 'Aloja';
   }
 
   .webcam-wrapper {
