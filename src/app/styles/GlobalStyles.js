@@ -1,8 +1,14 @@
-// app/styles/GlobalStyles.js
 "use client";
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
+  /* Declare your custom font first */
+  @font-face {
+    font-family: 'Aloja';
+    src: url('/Aloja Extended.ttf') format('truetype');
+    font-style: normal;
+  }
+ 
   /* Basic CSS reset or normalize can go here */
   *,
   *::before,
@@ -13,7 +19,8 @@ const GlobalStyles = createGlobalStyle`
   html, body {
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Now you can use your custom font */
+    font-family:  sans-serif;
     background-color: ${({ theme }) => theme.colors.light};
     color: ${({ theme }) => theme.colors.primaryDark};
     min-height: 100%;

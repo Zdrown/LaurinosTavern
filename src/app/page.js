@@ -51,6 +51,7 @@ const HeroSection = styled.section`
 
   h1 {
     font-size: 3rem;
+    font-weight: 700;
     margin-bottom: 1rem;
     letter-spacing: 1px;
   }
@@ -107,6 +108,10 @@ const AboutSection = styled.section`
     padding-right: 2rem;
   }
 
+  h2 {
+    
+    font-family: 'Aloja';
+  }
   .about-image {
     flex: 1;
     text-align: center;
@@ -141,6 +146,7 @@ const CarouselSection = styled.section`
   h2 {
     color: ${({ theme }) => theme.colors.primaryLight};
     margin-bottom: 2rem;
+    font-family: 'Aloja';
   }
 
   /* The carousel of items */
@@ -167,7 +173,7 @@ const CarouselSection = styled.section`
       h3 {
         margin-bottom: 0.75rem;
         font-size: 1.2rem;
-        font-weight: bold;
+        
       }
 
       img {
@@ -236,6 +242,7 @@ const CarouselSection = styled.section`
   h2 {
     color: ${({ theme }) => theme.colors.primaryDark};
     margin-bottom: 0.5rem;
+    font-family: 'Aloja';
   }
 
   .subheading {
@@ -245,7 +252,7 @@ const CarouselSection = styled.section`
   }
 
   p {
-    color: ${({ theme }) => theme.colors.primaryLight};
+    color: ${({ theme }) => theme.colors.primaryDark};
     margin-bottom: 2rem;
   }
 
@@ -315,6 +322,7 @@ const Section = styled.section`
   h2 {
     color: ${({ theme }) => theme.colors?.primaryDark || '#333'};
     margin-bottom: 1rem;
+    font-family: 'Aloja';
   }
 
   p {
@@ -436,7 +444,7 @@ export default function HomePage() {
       {/* Your main hero content */}
       <div className="hero-content">
         <h1>Welcome to Laurino&apos;s Tavern</h1>
-        <p>A Cape Cod classic, now with modern flare.</p>
+        <p>Serving up local favorites on Cape Cod for generations</p>
         <a href="/menu" className="hero-cta">Order Now</a>
       </div>
     </HeroSection>
