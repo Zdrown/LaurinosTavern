@@ -102,6 +102,9 @@ export default function Header() {
           <Link href="/catering" className="nav-link">
             Catering
           </Link>
+          <Link href="/" className="nav-link">
+            Locally Brewed Seltzer
+          </Link>
           <Link href="/gift-cards" className="nav-link">
             Gift Cards
           </Link>
