@@ -224,8 +224,8 @@ const CateringSection = styled.section`
   .content {
     display: flex;
     flex-direction: row;
-    align-items: center;     /* vertically center content */
-    justify-content: center; /* horizontally center the entire block */
+    align-items: center;
+    justify-content: center;
     gap: 2rem;
     max-width: 1200px;
     width: 100%;
@@ -235,7 +235,7 @@ const CateringSection = styled.section`
   /* Text content on the left */
   .text-content {
     flex: 1;
-    text-align: left; /* or center if you prefer */
+    text-align: left; /* or center, if you prefer */
   }
 
   h2 {
@@ -281,21 +281,21 @@ const CateringSection = styled.section`
     /* The SVG or img inside here */
     img,
     svg {
-      max-width: 900px; 
+      max-width: 900px;
       height: 100vh;
       display: block;
     }
   }
 
-  /* Tablet breakpoint (example) */
+  /* Responsive: stack in a column on smaller screens */
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     .content {
       flex-direction: column;
-      text-align: center; /* center text on tablet/mobile if desired */
+      text-align: center; /* center text on mobile if desired */
     }
 
     .text-content {
-      order: 2; /* text below image if you want */
+      order: 2; /* put text below the image on smaller devices */
     }
 
     .image-container {
@@ -304,15 +304,16 @@ const CateringSection = styled.section`
     }
   }
 
-  /* Mobile breakpoint (example) */
+  /* Make the SVG a bit bigger on mobile but avoid overflow */
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     .image-container img,
     .image-container svg {
-      max-width: 95%
-      height: auto;   /* let the height scale naturally */
+      max-width: 140%; /* or 100% if you want it even larger */
+      height: auto;   /* remove fixed height to prevent overflow */
     }
   }
 `;
+
 
 // MERCH SECTION (unchanged)
 
