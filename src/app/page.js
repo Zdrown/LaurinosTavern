@@ -2,6 +2,8 @@
 
 import styled from 'styled-components';
 import Link from 'next/link';
+import Image from 'next/image';
+
 
 // HERO SECTION
 
@@ -141,18 +143,17 @@ const CarouselSection = styled.section`
     margin-bottom: 2rem;
   }
 
-  /* Add spacing from the top of the carousel area */
+  /* The carousel of items */
   .carousel {
     margin-top: 2rem;
     display: flex;
     gap: 2rem;
     overflow-x: auto;
-    padding-bottom: 1rem; /* Some extra spacing if needed */
+    padding-bottom: 1rem;
 
     .food-item {
       width: 300px;
       background: ${({ theme }) => theme.colors.accent};
-      /* Tertiary dark border */
       border: 2px solid ${({ theme }) => theme.colors.tertiaryDark};
       border-radius: 8px;
       flex-shrink: 0;
@@ -169,12 +170,33 @@ const CarouselSection = styled.section`
         font-weight: bold;
       }
 
-      /* Fixed size images, all consistent */
       img {
         width: 100%;
         height: 200px;
         object-fit: cover; 
         border-radius: 6px;
+      }
+    }
+  }
+
+  /* A separate container for a single CTA button below the carousel */
+  .order-cta {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center; /* Centers the button horizontally */
+    width: 100%;
+
+    .order-now-btn {
+      background: ${({ theme }) => theme.colors.primaryDark};
+      color: #fff;
+      text-decoration: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      font-weight: 600;
+      transition: background 0.3s ease;
+
+      &:hover {
+        background: ${({ theme }) => theme.colors.secondaryDark};
       }
     }
   }
@@ -253,7 +275,7 @@ const CarouselSection = styled.section`
     /* The SVG or img inside here */
     img,
     svg {
-      max-width: 1000px; /* Adjust as needed for your design */
+      max-width: 900px; /* Adjust as needed for your design */
       height: 100vh;
       display: block;
     }
@@ -279,8 +301,8 @@ const CarouselSection = styled.section`
 // MERCH SECTION (unchanged)
 
 
-const MerchSection = styled.section`
-  background: ${({ theme }) => theme.colors.light};
+const Section = styled.section`
+  background: ${({ theme }) => theme.colors?.light || '#f9f9f9'};
   text-align: center;
   padding: 4rem 2rem;
   border-top: 1px solid #ddd;
@@ -291,41 +313,73 @@ const MerchSection = styled.section`
   justify-content: center;
 
   h2 {
-    color: ${({ theme }) => theme.colors.primaryDark};
+    color: ${({ theme }) => theme.colors?.primaryDark || '#333'};
     margin-bottom: 1rem;
   }
 
   p {
-    color: ${({ theme }) => theme.colors.highlight};
+    color: ${({ theme }) => theme.colors?.highlight || '#666'};
     margin-bottom: 2rem;
   }
 
-  .merch-grid {
+.merch-grid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+
+  .merch-item {
+    background: ${({ theme }) => theme.colors?.accent || '#e5e5e5'};
+    color: ${({ theme }) => theme.colors?.primaryDark || '#333'};
+-   width: 200px;
+-   height: 250px;
++   width: 250px;
++   height: 300px; 
+    border-radius: 8px;
     display: flex;
-    justify-content: center;
-    gap: 2rem;
-    flex-wrap: wrap;
+    flex-direction: column;
++   justify-content: space-between; /* Keep image & text from crowding each other */
+    align-items: center;
+    font-weight: bold;
+    padding: 1rem;
+    transition: background 0.3s, color 0.3s;
 
-    .merch-item {
-      background: ${({ theme }) => theme.colors.accent};
-      color: ${({ theme }) => theme.colors.primaryDark};
-      width: 200px;
-      height: 200px;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
+    &:hover {
+      background: ${({ theme }) => theme.colors?.lighterBlue || '#cce0ff'};
+      color: ${({ theme }) => theme.colors?.primaryLight || '#fff'};
+    }
 
-      &:hover {
-        background: ${({ theme }) => theme.colors.lighterBlue};
-        color: ${({ theme }) => theme.colors.primaryLight}; /* Text turns white */
-      }
+    span {
+      margin-top: 0.5rem;
+    }
+
++   /* Responsive tweak for small screens */
++   @media (max-width: 768px) {
++     width: 150px;
++     height: 200px;
++   }
+  }
+}
     }
   }
 `;
 
+// The styled button
+const CTAButton = styled.button`
+  background: ${({ theme }) => theme.colors?.primaryDark || '#333'};
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  margin-bottom: 2rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease;
 
+  &:hover {
+    background: ${({ theme }) => theme.colors?.secondaryDark || '#555'};
+  }
+`;
 
 // WEBCAM SECTION (with tertiaryDark border)
  const WebcamSection = styled.section`
@@ -383,7 +437,7 @@ export default function HomePage() {
       <div className="hero-content">
         <h1>Welcome to Laurino&apos;s Tavern</h1>
         <p>A Cape Cod classic, now with modern flare.</p>
-        <a href="/menu" className="hero-cta">View Menu</a>
+        <a href="/menu" className="hero-cta">Order Now</a>
       </div>
     </HeroSection>
 
@@ -408,11 +462,12 @@ export default function HomePage() {
       </AboutSection>
 
       <CarouselSection>
-      <h2>Order Our Favorites</h2>
+      <h2>Try Our Favorites</h2>
       <div className="carousel">
         <div className="food-item">
           <h3>Lobster Roll</h3>
           <img src="/LobsterRoll.jpg" alt="Lobster Roll" />
+       
         </div>
         <div className="food-item">
           <h3> Fish Tacos</h3>
@@ -439,7 +494,11 @@ export default function HomePage() {
           <img src="/Steak.jpg" alt="Steak" />
         </div>
       </div>
+      <div className="order-cta">
+        <a href="/menu" className="order-now-btn">Order Now</a>
+      </div>
     </CarouselSection>
+    
 
     <CateringSection>
       <div className="content">
@@ -469,15 +528,78 @@ export default function HomePage() {
     </CateringSection>
 
 
-      <MerchSection>
-        <h2>Buy Our Merch</h2>
-        <p>Show off your Laurino&apos;s pride with apparel, mugs, and more.</p>
-        <div className="merch-grid">
-          <div className="merch-item">T-Shirts</div>
-          <div className="merch-item">Hoodies</div>
-          <div className="merch-item">Mugs</div>
+    <Section>
+      <h2>Our Merch</h2>
+      <p>Check out our official merchandise below!</p>
+
+      {/* CTA button linking to "/store" */}
+      <Link href="/store">
+        <CTAButton>Go to Store</CTAButton>
+      </Link>
+
+      <div className="merch-grid">
+        {/* Hat */}
+        <div className="merch-item">
+          <Image
+            src="Untitled design-5.svg"
+            alt="Gear"
+            width={275}
+            height={275}
+            style={{
+              objectFit: 'contain',
+              margin: '0 auto',
+            }}
+          />
+          <span>Gear</span>
         </div>
-      </MerchSection>
+
+        {/* T-Shirt */}
+        <div className="merch-item">
+          <Image
+            src="Untitled design-7.svg"
+            alt="T-Shirts"
+            width={275}
+            height={275}
+            style={{
+              objectFit: 'contain',
+              margin: '0 auto',
+            }}
+          />
+          <span>T-Shirts</span>
+        </div>
+
+        {/* Sweatshirt */}
+        <div className="merch-item">
+          <Image
+            src="Untitled design-6.svg"
+            alt="Sweatshirts"
+            width={275}
+            height={275}
+            style={{
+              objectFit: 'contain',
+              margin: '0 auto',
+            }}
+          />
+          <span>Sweatshirts</span>
+        </div>
+
+        {/* Gear */}
+        <div className="merch-item">
+          <Image
+            src="Untitled design-8.svg"
+            alt="Hats"
+            width={275}
+            height={275}
+            style={{
+              objectFit: 'contain',
+              margin: '0 auto',
+            }}
+          />
+          <span>Hats</span>
+        </div>
+      </div>
+    </Section>
+
 
       <WebcamSection>
   <h2>Live Webcam</h2>

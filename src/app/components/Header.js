@@ -94,7 +94,9 @@ export default function Header() {
         <Link href="/order" className="nav-link">
           Order
         </Link>
-
+        <Link href="/menu" className="nav-link">
+          Menu
+        </Link>
         {/* Desktop-only links */}
         <div className="desktop-links">
           <Link href="/catering" className="nav-link">
