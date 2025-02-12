@@ -3,6 +3,7 @@ import Link from "next/link";
 import styled from "styled-components";
 import { useState } from "react";
 
+
 const HeaderContainer = styled.header`
   background-color: ${({ theme }) => theme.colors.secondaryDark};
   color: ${({ theme }) => theme.colors.primaryLight};
@@ -13,7 +14,7 @@ const HeaderContainer = styled.header`
 
   .logo {
     font-size: 1.5rem;
-    font-family: 'Aloja';
+    font-family: 'Aloja'
   }
 
   nav {
@@ -105,7 +106,7 @@ export default function Header() {
           <Link href="/" className="nav-link">
             Locally Brewed Seltzer
           </Link>
-          <Link href="/gift-cards" className="nav-link">
+          <Link href="/components/gift-cards" className="nav-link">
             Gift Cards
           </Link>
           <Link href="/laurinos-store" className="nav-link">
