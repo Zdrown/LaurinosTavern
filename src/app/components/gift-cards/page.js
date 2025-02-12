@@ -6,9 +6,12 @@ const GiftCardsContainer = styled.main`
   display: flex;
   justify-content: center;
   padding: 2rem 1rem;
-  background: ${({ theme }) => theme.colors.bluePastel};
+  background: ${({ theme }) => theme.colors.tertiaryDark};
   min-height: 80vh;
 `;
+
+
+
 
 const Card = styled.div`
   background: #fff;
@@ -26,7 +29,7 @@ const Card = styled.div`
  * otherwise remove or adjust margin-top
  */
 const Boundbox = styled.div`
-  margin-top: -15rem; 
+  margin-top: -18rem; 
 `;
 
 const HeaderImage = styled.img`
@@ -44,7 +47,8 @@ const Title = styled.h1`
   color: ${({ theme }) => theme.colors.primaryDark};
   margin-bottom: 0.5rem;
   margin-top: -8rem; /* optional offset */
-  font-family: "Aloja"
+  font-family: "Aloja";
+ 
 `;
 
 const Subtitle = styled.p`
@@ -338,9 +342,12 @@ export default function GiftCardsPage() {
     <GiftCardsContainer>
       <Card>
         <Boundbox>
+       
           <HeaderImage src="/LaurinosLogo.png" alt="Gift Cards Display" />
-
+         
+          
           <Title>Gift Cards</Title>
+         
           <Subtitle>
             Treat your loved ones to an unforgettable dining experience! 
             Choose an amount, enter recipient details, and schedule (or send now).
