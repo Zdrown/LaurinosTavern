@@ -100,10 +100,10 @@ export default function Header() {
         </Link>
         {/* Desktop-only links */}
         <div className="desktop-links">
-          <Link href="/catering" className="nav-link">
+          <Link href="/components/catering" className="nav-link">
             Catering
           </Link>
-          <Link href="/" className="nav-link">
+          <Link href="/components/seltzer" className="nav-link">
             Locally Brewed Seltzer
           </Link>
           <Link href="/components/gift-cards" className="nav-link">
