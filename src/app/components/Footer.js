@@ -83,7 +83,7 @@ export default function Footer() {
         <div className="socials">
           {/* Update these links to your actual socials */}
           <a
-            href="https://facebook.com"
+            href="https://www.facebook.com/share/1DDB27X8jP/?mibextid=wwXIfr"
             aria-label="Facebook"
             target="_blank"
             rel="noopener noreferrer"
@@ -99,7 +99,7 @@ export default function Footer() {
             <FaTwitter />
           </a>
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/laurinoscape?igsh=OGxmNG1nMjExMmR6"
             aria-label="Instagram"
             target="_blank"
             rel="noopener noreferrer"

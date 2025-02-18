@@ -560,7 +560,7 @@ export default function HomePage() {
         {/* Hat */}
         <div className="merch-item">
           <Image
-            src="Gear.svg"
+            src="/Gear.svg"
             alt="Gear"
             width={275}
             height={275}
@@ -575,7 +575,7 @@ export default function HomePage() {
         {/* T-Shirt */}
         <div className="merch-item">
           <Image
-            src="Tshirts.svg"
+            src="/Tshirts.svg"
             alt="T-Shirts"
             width={275}
             height={275}
@@ -590,7 +590,7 @@ export default function HomePage() {
         {/* Sweatshirt */}
         <div className="merch-item">
           <Image
-            src="Sweatshirts.svg"
+            src="/Sweatshirts.svg"
             alt="Sweatshirts"
             width={275}
             height={275}
@@ -605,7 +605,7 @@ export default function HomePage() {
         {/* Gear */}
         <div className="merch-item">
           <Image
-            src="Hats.svg"
+            src="/Hats.svg"
             alt="Hats"
             width={275}
             height={275}

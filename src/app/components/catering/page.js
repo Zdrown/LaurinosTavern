@@ -6,7 +6,7 @@ export default function CateringPage() {
   return (
     <CateringSection>
       <SectionHeader>
-        <h2>Elegant Catering for Every Occasion</h2>
+        <h2> Catering for Every Occasion</h2>
         <p>Let Laurino's Tavern bring the perfect touch to your special event with our personalized catering services. From intimate gatherings to grand celebrations, we provide fresh, locally sourced cuisine paired with impeccable service.</p>
       </SectionHeader>
 
