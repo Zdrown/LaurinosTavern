@@ -125,10 +125,10 @@ export default function Header() {
 
         {/* Mobile dropdown menu */}
         <div className={`mobile-menu ${menuOpen ? "open" : ""}`}>
-          <Link href="/catering" className="nav-link" onClick={toggleMenu}>
+          <Link href="/components/catering" className="nav-link" onClick={toggleMenu}>
             Catering
           </Link>
-          <Link href="/gift-cards" className="nav-link" onClick={toggleMenu}>
+          <Link href="/components/gift-cards" className="nav-link" onClick={toggleMenu}>
             Gift Cards
           </Link>
           <Link href="/laurinos-store" className="nav-link" onClick={toggleMenu}>
