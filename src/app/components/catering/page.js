@@ -116,8 +116,10 @@ const AdditionalServices = styled.div`
 
 const CTAButton = styled.div`
   margin-top: 3rem;
+  text-align: center;
 
   a {
+    display: inline-block;
     background: ${({ theme }) => theme.colors.primaryDark};
     color: #fff;
     padding: 1rem 2rem;
@@ -125,10 +127,20 @@ const CTAButton = styled.div`
     border-radius: 4px;
     text-decoration: none;
     font-weight: 600;
+    white-space: nowrap; /* Force single line */
 
     &:hover {
       background: ${({ theme }) => theme.colors.secondaryDark};
     }
   }
-`;
 
+  @media (max-width: 480px) {
+    a {
+      font-size: 1rem;
+      padding: 0.75rem 1rem;
+      /* If you need wrapping:
+         white-space: normal; 
+      */
+    }
+  }
+`;

@@ -5,12 +5,18 @@ import { useState } from "react";
 
 
 const HeaderContainer = styled.header`
+  z-index: 9999;
+  position: relative;
   background-color: ${({ theme }) => theme.colors.secondaryDark};
   color: ${({ theme }) => theme.colors.primaryLight};
   padding: 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  .mobile-menu .nav-link:not(:last-child) {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.5rem; /* some space after the line */
+}
 
   .logo {
     font-size: 1.5rem;
@@ -43,7 +49,8 @@ const HeaderContainer = styled.header`
   /* The hamburger icon is hidden on desktop */
   .hamburger {
     display: none;
-    font-size: 1.5rem;
+    font-size: 2rem;
+    padding: 0.5rem;
     background: none;
     border: none;
     cursor: pointer;
@@ -54,13 +61,14 @@ const HeaderContainer = styled.header`
   .mobile-menu {
     position: absolute;
     top: 70px; /* adjust based on header height */
-    right: 1rem;
+    right: .15rem;
     background: ${({ theme }) => theme.colors.secondaryDark};
     padding: 1rem;
     border-radius: 4px;
     display: none;
     flex-direction: column;
-    gap: 1rem;
+    gap: 2rem;
+    font-size: 1rem;
   }
 
   /* Visible if "menuOpen" is true */

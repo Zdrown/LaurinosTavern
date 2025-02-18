@@ -29,8 +29,15 @@ const Card = styled.div`
  * otherwise remove or adjust margin-top
  */
 const Boundbox = styled.div`
-  margin-top: -18rem; 
+  /* Default for mobile: no negative margin */
+  margin-top: 0;
+
+  /* On screens above 992px, apply the offset */
+  @media (min-width: 992px) {
+    margin-top: -18rem;
+  }
 `;
+
 
 const HeaderImage = styled.img`
   width: 100%;
@@ -40,23 +47,31 @@ const HeaderImage = styled.img`
   margin: 0 auto 1rem;
   display: block;
   border: none;
+   @media (max-width: 768px) {
+  display: none;
+}
 `;
 
 const Title = styled.h1`
   font-size: 2rem;
   color: ${({ theme }) => theme.colors.primaryDark};
   margin-bottom: 0.5rem;
-  margin-top: -8rem; /* optional offset */
   font-family: "Aloja";
- 
-`;
+  margin-top: 0;
 
+  @media (min-width: 992px) {
+    margin-top: -8rem;
+  }
+`;
 const Subtitle = styled.p`
   font-size: 1rem;
   color: ${({ theme }) => theme.colors.primaryDark};
   max-width: 600px;
   margin: 0.5rem auto 1.5rem;
   line-height: 1.4;
+
+    @media (max-width: 768px) {
+ margin-top: 2rem;
 `;
 
 const Subtitle2 = styled.p`
