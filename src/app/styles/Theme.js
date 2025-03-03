@@ -10,15 +10,11 @@ const Theme = {
 
     tertiaryDark: '#3a5666',// deeper blue (ocean blue)
 
-    // White (corrected from "#ffff" to "#ffffff")
     primaryLight: '#ffffff',
 
     bluePastel: '#91acbd', // pastel baby blue
     lighterBlue: '#b1c5d0',// lightest pastel blue
 
-
-
-    // Misty blue: nice for secondary backgrounds or accent text
 
     // Off-white: main page background
     background: '#FAF9F6',

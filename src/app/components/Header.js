@@ -2,7 +2,8 @@
 import Link from "next/link";
 import styled from "styled-components";
 import { useState } from "react";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUtensils, faGift, faStore, faHome } from "@fortawesome/free-solid-svg-icons";
 
 const HeaderContainer = styled.header`
   z-index: 9999;
@@ -13,14 +14,10 @@ const HeaderContainer = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  .mobile-menu .nav-link:not(:last-child) {
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 0.5rem; /* some space after the line */
-}
 
   .logo {
     font-size: 1.5rem;
-    font-family: 'Aloja'
+    font-family: 'Aloja';
   }
 
   nav {
@@ -29,7 +26,7 @@ const HeaderContainer = styled.header`
     gap: 2rem;
   }
 
-  /* We keep the 'Order' link visible on mobile, hide others */
+  /* Desktop links */
   .desktop-links {
     display: flex;
     gap: 2rem;
@@ -40,13 +37,13 @@ const HeaderContainer = styled.header`
     text-decoration: none;
     font-weight: 500;
     transition: background 0.3s ease;
-
+    
     &:hover {
       background: ${({ theme }) => theme.colors.lighterBlue};
     }
   }
 
-  /* The hamburger icon is hidden on desktop */
+  /* Hamburger icon (hidden on desktop) */
   .hamburger {
     display: none;
     font-size: 2rem;
@@ -57,53 +54,71 @@ const HeaderContainer = styled.header`
     color: ${({ theme }) => theme.colors.primaryLight};
   }
 
-  /* Dropdown menu for mobile links (initially hidden) */
+  /* Mobile dropdown menu */
   .mobile-menu {
     position: absolute;
     top: 70px; /* adjust based on header height */
-    right: .15rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 500px;
     background: ${({ theme }) => theme.colors.secondaryDark};
-    padding: 1rem;
-    border-radius: 4px;
+    padding: 2rem;
+    border-radius: 8px;
     display: none;
     flex-direction: column;
-    gap: 2rem;
-    font-size: 1rem;
+    gap: 1.5rem;
+    font-size: 1.2rem;
   }
 
-  /* Visible if "menuOpen" is true */
+  /* Mobile menu links: full-width with dividers and icons */
+  .mobile-menu .nav-link {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 0;
+    text-align: left;
+  }
+  
+  .mobile-menu .nav-link:not(:last-child) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  /* Icon styling: pastel blue theme color */
+  .mobile-menu .menu-icon {
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+    color: ${({ theme }) => theme.colors.tertiaryDark};
+  }
+
   .mobile-menu.open {
     display: flex;
   }
 
-  /* Responsive (mobile) adjustments */
+  /* Responsive: show hamburger on mobile, hide desktop links */
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     .desktop-links {
-      display: none; /* hide the extra links on mobile */
+      display: none;
     }
     .hamburger {
-      display: block; /* show hamburger on mobile */
+      display: block;
     }
   }
 `;
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
+  const toggleMenu = () => setMenuOpen(!menuOpen);
 
   return (
     <HeaderContainer>
       <div className="logo">Laurino&apos;s Tavern</div>
-
       <nav>
-        {/* Always visible "Order" link, even on mobile */}
+        {/* Always visible links */}
         <Link href="/order" className="nav-link">
           Order
         </Link>
-        <Link href="/menu" className="nav-link">
+        <Link href="/components/menu" className="nav-link">
           Menu
         </Link>
         {/* Desktop-only links */}
@@ -124,25 +139,26 @@ export default function Header() {
             Home
           </Link>
         </div>
-
         {/* Hamburger icon (mobile only) */}
-        <button type= 'button' className="hamburger" onClick={toggleMenu} aria-label="Menu">
+        <button type="button" className="hamburger" onClick={toggleMenu} aria-label="Menu">
           {menuOpen ? "\u2715" : "\u2630"}
-          {/* \u2630 = hamburger icon, \u2715 = "X" close icon */}
         </button>
-
         {/* Mobile dropdown menu */}
         <div className={`mobile-menu ${menuOpen ? "open" : ""}`}>
           <Link href="/components/catering" className="nav-link" onClick={toggleMenu}>
+            <FontAwesomeIcon icon={faUtensils} className="menu-icon" />
             Catering
           </Link>
           <Link href="/components/gift-cards" className="nav-link" onClick={toggleMenu}>
+            <FontAwesomeIcon icon={faGift} className="menu-icon" />
             Gift Cards
           </Link>
           <Link href="/laurinos-store" className="nav-link" onClick={toggleMenu}>
+            <FontAwesomeIcon icon={faStore} className="menu-icon" />
             Laurino&apos;s Store
           </Link>
           <Link href="/" className="nav-link" onClick={toggleMenu}>
+            <FontAwesomeIcon icon={faHome} className="menu-icon" />
             Home
           </Link>
         </div>

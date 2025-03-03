@@ -2,6 +2,7 @@
 import React from "react";
 import styled from "styled-components";
 
+
 export default function CateringPage() {
   return (
     <CateringSection>
@@ -36,7 +37,7 @@ export default function CateringPage() {
       </AdditionalServices>
 
       <CTAButton>
-        <a href="/contact">Contact Us for More Details</a>
+        <a href="/components/moreinfo">Contact Us for More Details</a>
       </CTAButton>
     </CateringSection>
   );

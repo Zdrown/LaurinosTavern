@@ -123,7 +123,7 @@ export default function Footer() {
 
         {/* Copyright */}
         <p className="copyright">
-          © {new Date().getFullYear()} Laurino&apos;s Tavern. All rights reserved.
+          © {new Date().getFullYear()} Laurino&apos;s Tavern. idk some rights reserved i guess im just making this website for the free pizza
         </p>
       </div>
     </FooterContainer>

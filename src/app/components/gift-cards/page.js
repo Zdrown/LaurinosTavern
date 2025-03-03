@@ -136,7 +136,7 @@ const SendTimeContainer = styled.div`
 
     label {
       display: flex;
-      gap: 0.25rem;
+      gap: .25rem;
       align-items: center;
       font-size: 0.9rem;
       color: ${({ theme }) => theme.colors.primaryDark};
@@ -148,8 +148,9 @@ const SendTimeContainer = styled.div`
   .schedule-fields {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 1rem;
     margin-top: 1rem;
+   
 
     input[type="date"],
     input[type="time"] {

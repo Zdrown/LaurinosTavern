@@ -119,7 +119,7 @@ const AboutSection = styled.section`
     img {
       max-width: 100%;
       border-radius: 8px;
-      height:70vh;
+      height: 70vh;
     }
   }
 
@@ -301,6 +301,7 @@ const CateringSection = styled.section`
     .image-container {
       order: 1;
       margin-bottom: 2rem; /* space between image and text */
+      overflow: hidden;
     }
   }
 
@@ -308,7 +309,8 @@ const CateringSection = styled.section`
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     .image-container img,
     .image-container svg {
-      max-width: 140%; /* or 100% if you want it even larger */
+      max-width: 140%; 
+      gap: 1rem;
       height: auto;   /* remove fixed height to prevent overflow */
     }
   }
@@ -420,7 +422,7 @@ const CTAButton = styled.button`
     /* Center the container and give it a max width for desktop */
     max-width: 1200px; 
     margin: 0 auto; 
-    width: 80%;
+    width: 90%;
 
     iframe {
       /* Fill the container’s width, automatically scale height */
