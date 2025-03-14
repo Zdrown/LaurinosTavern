@@ -1,8 +1,7 @@
-// app/layout.js
 "use client";
-
 import StyledComponentsRegistry from './styledComponentsRegistry';
 import { ThemeProvider } from 'styled-components';
+import { CartProvider } from './context/CartContext';
 import Theme from './styles/Theme';
 import GlobalStyles from './styles/GlobalStyles';
 import Header from './components/Header';
@@ -14,10 +13,12 @@ export default function RootLayout({ children }) {
       <body>
         <StyledComponentsRegistry>
           <ThemeProvider theme={Theme}>
-            <GlobalStyles />
-            <Header />
-            <main>{children}</main>
-            <Footer />
+            <CartProvider>
+              <GlobalStyles />
+              <Header />
+              <main>{children}</main>
+              <Footer />
+            </CartProvider>
           </ThemeProvider>
         </StyledComponentsRegistry>
       </body>

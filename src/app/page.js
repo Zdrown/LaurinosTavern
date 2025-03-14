@@ -448,7 +448,7 @@ export default function HomePage() {
       {/* The background image in the DOM */}
       <img
         className="background-image"
-        src="/Cape Cod, Mass.jpg"
+        src="/Capecodmass.jpg"
         alt="Cape Cod ocean background"
       />
       {/* A dark overlay to ensure text is legible */}
@@ -462,7 +462,8 @@ export default function HomePage() {
       </div>
     </HeroSection>
 
-      <AboutSection>
+   
+      <AboutSection id="about">
         <div className="about-content">
           <h2>About Laurino&apos;s</h2>
           <p>
@@ -533,7 +534,7 @@ export default function HomePage() {
             Our friendly team is ready to bring the party to you, complete with
             custom menus, bar service, and more.
           </p>
-          <a href="/catering-details" className="cta-button">
+          <a href="/components/catering" className="cta-button">
             Learn More
           </a>
         </div>
@@ -554,13 +555,14 @@ export default function HomePage() {
       <p>Check out our official merchandise below!</p>
 
       {/* CTA button linking to "/store" */}
-      <Link href="/store">
+      <Link href="../components/laurinosstore/Store">
         <CTAButton>Go to Store</CTAButton>
       </Link>
 
       <div className="merch-grid">
         {/* Hat */}
         <div className="merch-item">
+        <Link href="../components/laurinosstore/Store?category=Gear">
           <Image
             src="/Gear.svg"
             alt="Gear"
@@ -571,11 +573,15 @@ export default function HomePage() {
               margin: '0 auto',
             }}
           />
+           </Link>
           <span>Gear</span>
         </div>
 
         {/* T-Shirt */}
+
+       
         <div className="merch-item">
+        <Link href="../components/laurinosstore/Store?category=T-Shirts">
           <Image
             src="/Tshirts.svg"
             alt="T-Shirts"
@@ -586,13 +592,15 @@ export default function HomePage() {
               margin: '0 auto',
             }}
           />
+           </Link>
           <span>T-Shirts</span>
         </div>
 
         {/* Sweatshirt */}
         <div className="merch-item">
+        <Link href="../components/laurinosstore/Store?category=Sweatshirts">
           <Image
-            src="/Sweatshirts.svg"
+            src="/Hoodiefront.svg"
             alt="Sweatshirts"
             width={275}
             height={275}
@@ -601,11 +609,13 @@ export default function HomePage() {
               margin: '0 auto',
             }}
           />
+          </Link>
           <span>Sweatshirts</span>
         </div>
 
         {/* Gear */}
         <div className="merch-item">
+        <Link href="../components/laurinosstore/Store?category=Hats">
           <Image
             src="/Hats.svg"
             alt="Hats"
@@ -616,6 +626,7 @@ export default function HomePage() {
               margin: '0 auto',
             }}
           />
+             </Link>
           <span>Hats</span>
         </div>
       </div>

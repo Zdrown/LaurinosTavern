@@ -22,6 +22,7 @@ export default function MenuPage() {
               </div>
               <p className="item-desc">Served with marinara sauce.</p>
             </MenuItem>
+            {/* Other appetizer items remain the same */}
             <MenuItem>
               <div className="item-info">
                 <span className="item-name">Potato Skins</span>
@@ -83,6 +84,7 @@ export default function MenuPage() {
                 Chicken or Shrimp ($10), Steak Tips or Swordfish ($13), Salmon ($14)
               </p>
             </MenuItem>
+            {/* Other salad items remain the same */}
             <MenuItem>
               <div className="item-info">
                 <span className="item-name">House Salad</span>
@@ -125,6 +127,7 @@ export default function MenuPage() {
               </div>
               <p className="item-desc">Add cheese +$1, add bacon +$1.75</p>
             </MenuItem>
+            {/* Other burger/sandwich items remain the same */}
             <MenuItem>
               <div className="item-info">
                 <span className="item-name">Grilled Hot Dog</span>
@@ -162,6 +165,7 @@ export default function MenuPage() {
           </div>
         </MenuCategory>
 
+        {/* Rest of the menu categories remain the same */}
         {/* 4. Soups */}
         <MenuCategory>
           <h2>Soups</h2>
@@ -188,7 +192,7 @@ export default function MenuPage() {
         {/* 5. Grinders */}
         <MenuCategory>
           <h2>Grinders</h2>
-          <div className="items">
+          <div className="items-grid">
             <MenuItem>
               <div className="item-info">
                 <span className="item-name">Italian Sausage</span>
@@ -333,88 +337,94 @@ export default function MenuPage() {
             Ricotta, Salmon, Spinach, Sausage, Roasted Red Peppers
           </p>
 
-          <p className="category-note">Small 10" (Serves 1-2)</p>
-          <div className="items">
-            <MenuItem>
-              <div className="item-info">
-                <span className="item-name">Cheese / Gluten Free</span>
-                <span className="item-price">$11</span>
+          <div className="pizza-section">
+            <div className="pizza-size">
+              <h3>Small 10" (Serves 1-2)</h3>
+              <div className="items">
+                <MenuItem>
+                  <div className="item-info">
+                    <span className="item-name">Cheese / Gluten Free</span>
+                    <span className="item-price">$11</span>
+                  </div>
+                </MenuItem>
+                <MenuItem>
+                  <div className="item-info">
+                    <span className="item-name">1 Topping</span>
+                    <span className="item-price">$12.50</span>
+                  </div>
+                </MenuItem>
+                <MenuItem>
+                  <div className="item-info">
+                    <span className="item-name">2 Toppings</span>
+                    <span className="item-price">$13.50</span>
+                  </div>
+                </MenuItem>
+                <MenuItem>
+                  <div className="item-info">
+                    <span className="item-name">3 Toppings</span>
+                    <span className="item-price">$14.50</span>
+                  </div>
+                </MenuItem>
+                <MenuItem>
+                  <div className="item-info">
+                    <span className="item-name">4 Toppings</span>
+                    <span className="item-price">$15.50</span>
+                  </div>
+                </MenuItem>
+                <MenuItem>
+                  <div className="item-info">
+                    <span className="item-name">Extra Cheese</span>
+                    <span className="item-price">$1</span>
+                  </div>
+                </MenuItem>
               </div>
-            </MenuItem>
-            <MenuItem>
-              <div className="item-info">
-                <span className="item-name">1 Topping</span>
-                <span className="item-price">$12.50</span>
+            </div>
+
+            <div className="pizza-size">
+              <h3>Large Rectangular (Serves 3-5)</h3>
+              <div className="items">
+                <MenuItem>
+                  <div className="item-info">
+                    <span className="item-name">Cheese</span>
+                    <span className="item-price">$15</span>
+                  </div>
+                </MenuItem>
+                <MenuItem>
+                  <div className="item-info">
+                    <span className="item-name">1 Topping</span>
+                    <span className="item-price">$16</span>
+                  </div>
+                </MenuItem>
+                <MenuItem>
+                  <div className="item-info">
+                    <span className="item-name">2 Toppings</span>
+                    <span className="item-price">$17</span>
+                  </div>
+                </MenuItem>
+                <MenuItem>
+                  <div className="item-info">
+                    <span className="item-name">3 Toppings</span>
+                    <span className="item-price">$18</span>
+                  </div>
+                </MenuItem>
+                <MenuItem>
+                  <div className="item-info">
+                    <span className="item-name">4 Toppings</span>
+                    <span className="item-price">$19</span>
+                  </div>
+                </MenuItem>
+                <MenuItem>
+                  <div className="item-info">
+                    <span className="item-name">Extra Cheese</span>
+                    <span className="item-price">$2</span>
+                  </div>
+                </MenuItem>
               </div>
-            </MenuItem>
-            <MenuItem>
-              <div className="item-info">
-                <span className="item-name">2 Toppings</span>
-                <span className="item-price">$13.50</span>
-              </div>
-            </MenuItem>
-            <MenuItem>
-              <div className="item-info">
-                <span className="item-name">3 Toppings</span>
-                <span className="item-price">$14.50</span>
-              </div>
-            </MenuItem>
-            <MenuItem>
-              <div className="item-info">
-                <span className="item-name">4 Toppings</span>
-                <span className="item-price">$15.50</span>
-              </div>
-            </MenuItem>
-            <MenuItem>
-              <div className="item-info">
-                <span className="item-name">Extra Cheese</span>
-                <span className="item-price">$1</span>
-              </div>
-            </MenuItem>
+            </div>
           </div>
 
-          <p className="category-note">Large Rectangular (Serves 3-5)</p>
-          <div className="items">
-            <MenuItem>
-              <div className="item-info">
-                <span className="item-name">Cheese</span>
-                <span className="item-price">$15</span>
-              </div>
-            </MenuItem>
-            <MenuItem>
-              <div className="item-info">
-                <span className="item-name">1 Topping</span>
-                <span className="item-price">$16</span>
-              </div>
-            </MenuItem>
-            <MenuItem>
-              <div className="item-info">
-                <span className="item-name">2 Toppings</span>
-                <span className="item-price">$17</span>
-              </div>
-            </MenuItem>
-            <MenuItem>
-              <div className="item-info">
-                <span className="item-name">3 Toppings</span>
-                <span className="item-price">$18</span>
-              </div>
-            </MenuItem>
-            <MenuItem>
-              <div className="item-info">
-                <span className="item-name">4 Toppings</span>
-                <span className="item-price">$19</span>
-              </div>
-            </MenuItem>
-            <MenuItem>
-              <div className="item-info">
-                <span className="item-name">Extra Cheese</span>
-                <span className="item-price">$2</span>
-              </div>
-            </MenuItem>
-          </div>
-
-          <p className="category-note">Signature Pizzas (Small / Large)</p>
-          <div className="items">
+          <h3>Signature Pizzas (Small / Large)</h3>
+          <div className="items-grid">
             <MenuItem>
               <div className="item-info">
                 <span className="item-name">The Fenway</span>
@@ -469,7 +479,7 @@ export default function MenuPage() {
         {/* 8. Quesadillas & Calzones */}
         <MenuCategory>
           <h2>Quesadillas &amp; Calzones</h2>
-          <div className="items">
+          <div className="items-grid">
             <MenuItem>
               <div className="item-info">
                 <span className="item-name">Three Cheese Calzone</span>
@@ -512,7 +522,7 @@ export default function MenuPage() {
           <p className="category-note">
             Dinners served after 4. Add a House Salad or Cup of Chowder +$5
           </p>
-          <div className="items">
+          <div className="items-grid">
             <MenuItem>
               <div className="item-info">
                 <span className="item-name">Grilled Salmon</span>
@@ -618,7 +628,7 @@ export default function MenuPage() {
         {/* 10. Substitution Prices & Sides */}
         <MenuCategory>
           <h2>Substitutions &amp; Sides</h2>
-          <div className="items">
+          <div className="items-grid">
             <MenuItem>
               <div className="item-info">
                 <span className="item-name">Chicken</span>
@@ -715,9 +725,8 @@ const MenuHeader = styled.div`
 
 const MenuContent = styled.div`
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 2rem;
-  justify-content: center;
   max-width: 1200px;
   width: 100%;
 `;
@@ -726,13 +735,18 @@ const MenuCategory = styled.div`
   background: ${({ theme }) => theme.colors.accent};
   border: 1px solid ${({ theme }) => theme.colors.tertiaryDark};
   border-radius: 8px;
-  padding: 1.5rem;
-  min-width: 300px;
-  max-width: 500px;
-  flex: 1;
+  padding: 2rem;
+  width: 100%;
 
   h2 {
     font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    color: ${({ theme }) => theme.colors.primaryDark};
+  }
+
+  h3 {
+    font-size: 1.4rem;
+    margin-top: 1.5rem;
     margin-bottom: 0.5rem;
     color: ${({ theme }) => theme.colors.primaryDark};
   }
@@ -747,6 +761,37 @@ const MenuCategory = styled.div`
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+  }
+
+  .items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .pizza-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .pizza-size {
+    h3 {
+      margin-top: 0;
+      text-align: left;
+    }
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .items-grid {
+      grid-template-columns: 1fr;
+    }
   }
 `;
 
@@ -781,5 +826,4 @@ const MenuItem = styled.div`
   &:last-child {
     border-bottom: none;
     padding-bottom: 0;
-  }
-`;
+  }`;

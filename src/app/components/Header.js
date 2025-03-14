@@ -3,7 +3,7 @@ import Link from "next/link";
 import styled from "styled-components";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUtensils, faGift, faStore, faHome } from "@fortawesome/free-solid-svg-icons";
+import { faUtensils, faGift, faStore,faBeer, faHome } from "@fortawesome/free-solid-svg-icons";
 
 const HeaderContainer = styled.header`
   z-index: 9999;
@@ -18,7 +18,17 @@ const HeaderContainer = styled.header`
   .logo {
     font-size: 1.5rem;
     font-family: 'Aloja';
+}
+      a {
+    color: ${({ theme }) => theme.colors.primaryLight};
+    text-decoration: none;
   }
+
+  /* To ensure the color doesn't change when visited */
+  a:visited {
+    color: ${({ theme }) => theme.colors.primaryLight};
+  }
+  
 
   nav {
     display: flex;
@@ -110,59 +120,76 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
-  return (
-    <HeaderContainer>
-      <div className="logo">Laurino&apos;s Tavern</div>
-      <nav>
-        {/* Always visible links */}
-        <Link href="/order" className="nav-link">
-          Order
+ return (
+  <HeaderContainer>
+    <Link href="/" style={{ textDecoration: 'none' }}>
+    <div className="logo">Laurino&apos;s Tavern</div>
+  </Link>
+    <nav>
+      {/* Always visible links */}
+      <Link href="/order" className="nav-link">
+        Order
+      </Link>
+      <Link href="/components/menu" className="nav-link">
+        Menu
+      </Link>
+      {/* Desktop-only links */}
+      <div className="desktop-links">
+        <Link href="/components/Contact" className="nav-link">
+          Contact
         </Link>
-        <Link href="/components/menu" className="nav-link">
-          Menu
+        <Link href="/components/seltzer" className="nav-link">
+          Locally Brewed Seltzer
         </Link>
-        {/* Desktop-only links */}
-        <div className="desktop-links">
-          <Link href="/components/catering" className="nav-link">
-            Catering
-          </Link>
-          <Link href="/components/seltzer" className="nav-link">
-            Locally Brewed Seltzer
-          </Link>
-          <Link href="/components/gift-cards" className="nav-link">
-            Gift Cards
-          </Link>
-          <Link href="/laurinos-store" className="nav-link">
-            Laurino&apos;s Store
-          </Link>
-          <Link href="/" className="nav-link">
-            Home
-          </Link>
-        </div>
-        {/* Hamburger icon (mobile only) */}
-        <button type="button" className="hamburger" onClick={toggleMenu} aria-label="Menu">
-          {menuOpen ? "\u2715" : "\u2630"}
-        </button>
-        {/* Mobile dropdown menu */}
-        <div className={`mobile-menu ${menuOpen ? "open" : ""}`}>
-          <Link href="/components/catering" className="nav-link" onClick={toggleMenu}>
-            <FontAwesomeIcon icon={faUtensils} className="menu-icon" />
-            Catering
-          </Link>
-          <Link href="/components/gift-cards" className="nav-link" onClick={toggleMenu}>
-            <FontAwesomeIcon icon={faGift} className="menu-icon" />
-            Gift Cards
-          </Link>
-          <Link href="/laurinos-store" className="nav-link" onClick={toggleMenu}>
-            <FontAwesomeIcon icon={faStore} className="menu-icon" />
-            Laurino&apos;s Store
-          </Link>
-          <Link href="/" className="nav-link" onClick={toggleMenu}>
-            <FontAwesomeIcon icon={faHome} className="menu-icon" />
-            Home
-          </Link>
-        </div>
-      </nav>
-    </HeaderContainer>
-  );
+        <a 
+          href="https://laurinostavern.webgiftcardsales.com/" 
+          className="nav-link"
+          target="_blank" 
+          rel="noopener noreferrer"
+        >
+          Gift Cards
+        </a>
+        <Link href="/components/laurinosstore/Store" className="nav-link">
+          Laurino&apos;s Store
+        </Link>
+        <Link href="/" className="nav-link">
+          Home
+        </Link>
+      </div>
+      {/* Hamburger icon (mobile only) */}
+      <button type="button" className="hamburger" onClick={toggleMenu} aria-label="Menu">
+        {menuOpen ? "\u2715" : "\u2630"}
+      </button>
+      {/* Mobile dropdown menu */}
+      <div className={`mobile-menu ${menuOpen ? "open" : ""}`}>
+        <Link href="/components/catering" className="nav-link" onClick={toggleMenu}>
+          <FontAwesomeIcon icon={faUtensils} className="menu-icon" />
+          Catering
+        </Link>
+        <a 
+          href="https://laurinostavern.webgiftcardsales.com/" 
+          className="nav-link"
+          target="_blank" 
+          rel="noopener noreferrer"
+          onClick={toggleMenu}
+        >
+          <FontAwesomeIcon icon={faGift} className="menu-icon" />
+          Gift Cards
+        </a>
+        <Link href="/laurinos-store" className="nav-link" onClick={toggleMenu}>
+          <FontAwesomeIcon icon={faStore} className="menu-icon" />
+          Laurino&apos;s Store
+        </Link>
+        <Link href="/components/seltzer" className="nav-link" onClick={toggleMenu}>
+          <FontAwesomeIcon icon={faBeer} className="menu-icon" />
+          Local Seltzer
+        </Link>
+        <Link href="/" className="nav-link" onClick={toggleMenu}>
+          <FontAwesomeIcon icon={faHome} className="menu-icon" />
+          Home
+        </Link>
+      </div>
+    </nav>
+  </HeaderContainer>
+);
 }

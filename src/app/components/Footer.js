@@ -1,6 +1,7 @@
 "use client";
 import styled from 'styled-components';
 import { FaFacebookF, FaTwitter, FaInstagram } from 'react-icons/fa';
+import { Link as ScrollLink } from 'react-scroll';
 
 
 
@@ -113,9 +114,9 @@ export default function Footer() {
 
         {/* Optional site nav links, e.g., Privacy Policy, etc. */}
         <nav className="footer-nav">
-          <a href="/about">About Us</a>
-          <a href="/menu">Menu</a>
-          <a href="/contact">Contact</a>
+        <ScrollLink to="about" smooth={true} duration={500} className="nav-link">About Us</ScrollLink>
+          <a href="/components/menu">Menu</a>
+          <a href="/components/Contact">Contact</a>
         </nav>
 
         {/* Another subtle divider if desired */}
