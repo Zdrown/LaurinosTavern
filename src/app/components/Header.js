@@ -162,9 +162,9 @@ export default function Header() {
       </button>
       {/* Mobile dropdown menu */}
       <div className={`mobile-menu ${menuOpen ? "open" : ""}`}>
-        <Link href="/components/catering" className="nav-link" onClick={toggleMenu}>
+        <Link href="/components/Contact" className="nav-link" onClick={toggleMenu}>
           <FontAwesomeIcon icon={faUtensils} className="menu-icon" />
-          Catering
+         Contact
         </Link>
         <a 
           href="https://laurinostavern.webgiftcardsales.com/" 
