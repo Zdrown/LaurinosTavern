@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useSearchParams } from 'next/navigation';
-import { useEffect } from 'react';
+import { useEffect, Suspense } from 'react';
 
 
 // HERO SECTION
@@ -427,7 +427,7 @@ const CTAButton = styled.button`
     width: 90%;
 
     iframe {
-      /* Fill the container’s width, automatically scale height */
+      /* Fill the container's width, automatically scale height */
       width: 100%;
       /* Use aspect-ratio for a fixed proportion (16:9 or ~610:343) */
       aspect-ratio: 610 / 343;
@@ -443,7 +443,15 @@ const CTAButton = styled.button`
   }
 `;
 
-export default function HomePage() {
+// Simple loading fallback component
+const LoadingFallback = () => (
+  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+    Loading...
+  </div>
+);
+
+// This component handles the scroll functionality with useSearchParams
+const ScrollHandler = ({ children }) => {
   const searchParams = useSearchParams();
   
   useEffect(() => {
@@ -461,208 +469,216 @@ export default function HomePage() {
     }
   }, [searchParams]);
 
+  return children;
+};
+
+export default function HomePage() {
   return (
-    <>
-      <HeroSection>
-      {/* The background image in the DOM */}
-      <img
-        className="background-image"
-        src="/Capecodmass.jpg"
-        alt="Cape Cod ocean background"
-      />
-      {/* A dark overlay to ensure text is legible */}
-      <div className="overlay" />
-
-      {/* Your main hero content */}
-      <div className="hero-content">
-        <h1>Welcome to Laurino&apos;s Tavern</h1>
-        <p>Serving up local favorites on Cape Cod for generations</p>
-        <a href="/components/menu" className="hero-cta">Order Now</a>
-      </div>
-    </HeroSection>
-
-   
-      <AboutSection id="about">
-        <div className="about-content">
-          <h2>About Laurino&apos;s</h2>
-          <p>
-            For decades, Laurino&apos;s Tavern has been a staple of Cape Cod dining,
-            offering fresh seafood, hearty comfort food, and a warm, welcoming atmosphere.
-          </p>
-          <p>
-            Whether you&apos;re here for a casual lunch, a family dinner, or a 
-            celebration, our friendly staff and cozy tavern vibes make every visit special.
-          </p>
-        </div>
-        <div className="about-image">
+    <Suspense fallback={<LoadingFallback />}>
+      <ScrollHandler>
+        <>
+          <HeroSection>
+          {/* The background image in the DOM */}
           <img
-            src="/barimage.jpg"
-            alt="Laurino's Tavern Front"
+            className="background-image"
+            src="/Capecodmass.jpg"
+            alt="Cape Cod ocean background"
           />
-        </div>
-      </AboutSection>
+          {/* A dark overlay to ensure text is legible */}
+          <div className="overlay" />
 
-      <CarouselSection>
-      <h2>Try Our Favorites</h2>
-      <div className="carousel">
-        <div className="food-item">
-          <h3>Lobster Roll</h3>
-          <img src="/LobsterRoll.jpg" alt="Lobster Roll" />
-       
-        </div>
-        <div className="food-item">
-          <h3> Fish Tacos</h3>
-          <img src="/FishTacos.jpg" alt="Fish Tacos" />
-        </div>
-        <div className="food-item">
-          <h3>Gourmet Pizza</h3>
-          <img src="/Pizza.png" alt="Pizza" />
-        </div>
-        <div className="food-item">
-          <h3>Fish &amp; Chips</h3>
-          <img src="/FishandChips.jpg" alt="Fish &amp; Chips" />
-        </div>
-        <div className="food-item">
-          <h3>Burgers</h3>
-          <img src="/Burger.jpg" alt="Oysters"  />
-        </div>
-        <div className="food-item">
-          <h3>Oysters</h3>
-          <img src="/Oysters.jpg" alt="Clam Chowder" />
-        </div>
-        <div className="food-item">
-          <h3>Steak</h3>
-          <img src="/Steak.jpg" alt="Steak" />
-        </div>
-      </div>
-      <div className="order-cta">
-        <a href="/menu" className="order-now-btn">Order Now</a>
-      </div>
-    </CarouselSection>
-    
-
-    <CateringSection>
-      <div className="content">
-        {/* Left: text content */}
-        <div className="text-content">
-          <h2>Catering Services</h2>
-          <div className="subheading">
-            Professional on-site catering for every occasion
+          {/* Your main hero content */}
+          <div className="hero-content">
+            <h1>Welcome to Laurino&apos;s Tavern</h1>
+            <p>Serving up local favorites on Cape Cod for generations</p>
+            <a href="/components/menu" className="hero-cta">Order Now</a>
           </div>
-          <p>
-            Our friendly team is ready to bring the party to you, complete with
-            custom menus, bar service, and more.
-          </p>
-          <a href="/components/catering" className="cta-button">
-            Learn More
-          </a>
-        </div>
-
-        {/* Right: SVG or image container */}
-        <div className="image-container">
-          <img
-            src="/Catering.svg"
-            alt="Mobile bar illustration"
-          />
-        </div>
-      </div>
-    </CateringSection>
-
-
-    <Section>
-      <h2>Our Merch</h2>
-      <p>Check out our official merchandise below!</p>
-
-      {/* CTA button linking to "/store" */}
-      <Link href="../components/laurinosstore/Store">
-        <CTAButton>Go to Store</CTAButton>
-      </Link>
-
-      <div className="merch-grid">
-        {/* Hat */}
-        <div className="merch-item">
-        <Link href="../components/laurinosstore/Store?category=Gear">
-          <Image
-            src="/Gear.svg"
-            alt="Gear"
-            width={275}
-            height={275}
-            style={{
-              objectFit: 'contain',
-              margin: '0 auto',
-            }}
-          />
-           </Link>
-          <span>Gear</span>
-        </div>
-
-        {/* T-Shirt */}
+        </HeroSection>
 
        
-        <div className="merch-item">
-        <Link href="../components/laurinosstore/Store?category=T-Shirts">
-          <Image
-            src="/Tshirts.svg"
-            alt="T-Shirts"
-            width={275}
-            height={275}
-            style={{
-              objectFit: 'contain',
-              margin: '0 auto',
-            }}
-          />
-           </Link>
-          <span>T-Shirts</span>
-        </div>
+          <AboutSection id="about">
+            <div className="about-content">
+              <h2>About Laurino&apos;s</h2>
+              <p>
+                For decades, Laurino&apos;s Tavern has been a staple of Cape Cod dining,
+                offering fresh seafood, hearty comfort food, and a warm, welcoming atmosphere.
+              </p>
+              <p>
+                Whether you&apos;re here for a casual lunch, a family dinner, or a 
+                celebration, our friendly staff and cozy tavern vibes make every visit special.
+              </p>
+            </div>
+            <div className="about-image">
+              <img
+                src="/barimage.jpg"
+                alt="Laurino's Tavern Front"
+              />
+            </div>
+          </AboutSection>
 
-        {/* Sweatshirt */}
-        <div className="merch-item">
-        <Link href="../components/laurinosstore/Store?category=Sweatshirts">
-          <Image
-            src="/Hoodiefront.svg"
-            alt="Sweatshirts"
-            width={275}
-            height={275}
-            style={{
-              objectFit: 'contain',
-              margin: '0 auto',
-            }}
-          />
+          <CarouselSection>
+          <h2>Try Our Favorites</h2>
+          <div className="carousel">
+            <div className="food-item">
+              <h3>Lobster Roll</h3>
+              <img src="/LobsterRoll.jpg" alt="Lobster Roll" />
+           
+            </div>
+            <div className="food-item">
+              <h3> Fish Tacos</h3>
+              <img src="/FishTacos.jpg" alt="Fish Tacos" />
+            </div>
+            <div className="food-item">
+              <h3>Gourmet Pizza</h3>
+              <img src="/Pizza.png" alt="Pizza" />
+            </div>
+            <div className="food-item">
+              <h3>Fish &amp; Chips</h3>
+              <img src="/FishandChips.jpg" alt="Fish &amp; Chips" />
+            </div>
+            <div className="food-item">
+              <h3>Burgers</h3>
+              <img src="/Burger.jpg" alt="Oysters"  />
+            </div>
+            <div className="food-item">
+              <h3>Oysters</h3>
+              <img src="/Oysters.jpg" alt="Clam Chowder" />
+            </div>
+            <div className="food-item">
+              <h3>Steak</h3>
+              <img src="/Steak.jpg" alt="Steak" />
+            </div>
+          </div>
+          <div className="order-cta">
+            <a href="/components/menu" className="order-now-btn">Order Now</a>
+          </div>
+        </CarouselSection>
+        
+
+        <CateringSection>
+          <div className="content">
+            {/* Left: text content */}
+            <div className="text-content">
+              <h2>Catering Services</h2>
+              <div className="subheading">
+                Professional on-site catering for every occasion
+              </div>
+              <p>
+                Our friendly team is ready to bring the party to you, complete with
+                custom menus, bar service, and more.
+              </p>
+              <a href="/components/catering" className="cta-button">
+                Learn More
+              </a>
+            </div>
+
+            {/* Right: SVG or image container */}
+            <div className="image-container">
+              <img
+                src="/Catering.svg"
+                alt="Mobile bar illustration"
+              />
+            </div>
+          </div>
+        </CateringSection>
+
+
+        <Section>
+          <h2>Our Merch</h2>
+          <p>Check out our official merchandise below!</p>
+
+          {/* CTA button linking to "/store" */}
+          <Link href="../components/laurinosstore/Store">
+            <CTAButton>Go to Store</CTAButton>
           </Link>
-          <span>Sweatshirts</span>
-        </div>
 
-        {/* Gear */}
-        <div className="merch-item">
-        <Link href="../components/laurinosstore/Store?category=Hats">
-          <Image
-            src="/Hats.svg"
-            alt="Hats"
-            width={275}
-            height={275}
-            style={{
-              objectFit: 'contain',
-              margin: '0 auto',
-            }}
-          />
-             </Link>
-          <span>Hats</span>
-        </div>
+          <div className="merch-grid">
+            {/* Hat */}
+            <div className="merch-item">
+            <Link href="../components/laurinosstore/Store?category=Gear">
+              <Image
+                src="/Gear.svg"
+                alt="Gear"
+                width={275}
+                height={275}
+                style={{
+                  objectFit: 'contain',
+                  margin: '0 auto',
+                }}
+              />
+               </Link>
+              <span>Gear</span>
+            </div>
+
+            {/* T-Shirt */}
+
+           
+            <div className="merch-item">
+            <Link href="../components/laurinosstore/Store?category=T-Shirts">
+              <Image
+                src="/Tshirts.svg"
+                alt="T-Shirts"
+                width={275}
+                height={275}
+                style={{
+                  objectFit: 'contain',
+                  margin: '0 auto',
+                }}
+              />
+               </Link>
+              <span>T-Shirts</span>
+            </div>
+
+            {/* Sweatshirt */}
+            <div className="merch-item">
+            <Link href="../components/laurinosstore/Store?category=Sweatshirts">
+              <Image
+                src="/Hoodiefront.svg"
+                alt="Sweatshirts"
+                width={275}
+                height={275}
+                style={{
+                  objectFit: 'contain',
+                  margin: '0 auto',
+                }}
+              />
+              </Link>
+              <span>Sweatshirts</span>
+            </div>
+
+            {/* Gear */}
+            <div className="merch-item">
+            <Link href="../components/laurinosstore/Store?category=Hats">
+              <Image
+                src="/Hats.svg"
+                alt="Hats"
+                width={275}
+                height={275}
+                style={{
+                  objectFit: 'contain',
+                  margin: '0 auto',
+                }}
+              />
+                 </Link>
+              <span>Hats</span>
+            </div>
+          </div>
+        </Section>
+
+
+          <WebcamSection>
+      <h2>Live Webcam</h2>
+      <p>Check out what's happening locally!</p>
+      <div className="webcam-wrapper">
+        <iframe
+          src="https://streampros.net/player/live/rvm2php9"
+          allowFullScreen
+          title="Live Stream"
+        />
       </div>
-    </Section>
-
-
-      <WebcamSection>
-  <h2>Live Webcam</h2>
-  <p>Check out what's happening locally!</p>
-  <div className="webcam-wrapper">
-    <iframe
-      src="https://streampros.net/player/live/rvm2php9"
-      allowFullScreen
-      title="Live Stream"
-    />
-  </div>
-</WebcamSection>
-    </>
+    </WebcamSection>
+        </>
+      </ScrollHandler>
+    </Suspense>
   );
 }
