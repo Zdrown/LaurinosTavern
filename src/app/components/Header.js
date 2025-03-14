@@ -176,7 +176,7 @@ export default function Header() {
           <FontAwesomeIcon icon={faGift} className="menu-icon" />
           Gift Cards
         </a>
-        <Link href="/laurinos-store" className="nav-link" onClick={toggleMenu}>
+        <Link href="/components/laurinosstore/Store" className="nav-link" onClick={toggleMenu}>
           <FontAwesomeIcon icon={faStore} className="menu-icon" />
           Laurino&apos;s Store
         </Link>
