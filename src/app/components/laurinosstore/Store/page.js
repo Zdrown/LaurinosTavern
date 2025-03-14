@@ -20,7 +20,7 @@ const sampleProducts = [
     category: "Gear",
     name: "Beer Koozie",
     images: ["/Canfront.svg", "/Canback.svg"],
-    price: "$25",
+    price: "$10",
     description: "High-quality gear from Laurino's. Perfect for everyday use."
   },
   {
@@ -28,7 +28,7 @@ const sampleProducts = [
     category: "Gear",
     name: "Premium Bag",
     images: ["/Bag.svg", "/Bagback3.svg"],
-    price: "$30",
+    price: "$20",
     description: "Stylish and functional bag, great for travel or gym."
   },
   // T-Shirts
@@ -37,7 +37,7 @@ const sampleProducts = [
     category: "T-Shirts",
     name: "Classic Tee",
     images: ["/Beigeshirtfront.svg", "/Shirtback.svg"],
-    price: "$20",
+    price: "$25",
     description: "Comfortable cotton tee for everyday casual wear.",
     sizes: ["Small", "Medium", "Large", "XL"]
   },
@@ -46,7 +46,7 @@ const sampleProducts = [
     category: "T-Shirts",
     name: "Vintage Tee",
     images: ["/Shirt2front.svg", "/Shirt2back.svg"],
-    price: "$22",
+    price: "$28",
     description: "Retro style with a soft, worn-in feel.",
     sizes: ["Small", "Medium", "Large", "XL"]
   },
@@ -54,7 +54,7 @@ const sampleProducts = [
   {
     id: 5,
     category: "Sweatshirts",
-    name: "Cozy Sweatshirt",
+    name: "Cozy Laurinos Sweatshirt",
     images: ["/Sweatshirtfront.svg", "/Sweatshirtback.svg"],
     price: "$35",
     description: "Warm and comfy, perfect for cool evenings.",
@@ -63,9 +63,9 @@ const sampleProducts = [
   {
     id: 6,
     category: "Sweatshirts",
-    name: "Modern Hoodie",
+    name: "Modern Laurinos Hoodie",
     images: ["/Hoodiefront.svg", "/Hoodieback.svg"],
-    price: "$40",
+    price: "$50",
     description: "Stylish design with a drawstring hood and front pocket.",
     sizes: ["Small", "Medium", "Large", "XL"]
   },
@@ -75,7 +75,7 @@ const sampleProducts = [
     category: "Hats",
     name: "Laurinos Cap",
     images: ["/Hatnffront.svg", "/Hatnfback.svg"],
-    price: "$15",
+    price: "$28",
     description: "A warm and trendy beanie for brisk weather."
   },
   {
@@ -83,7 +83,7 @@ const sampleProducts = [
     category: "Hats",
     name: "Cap",
     images: ["/Hatwhite.svg", "/Whiteback.svg"],
-    price: "$18",
+    price: "$23",
     description: "Casual baseball cap for everyday style."
   },
   {
@@ -91,7 +91,7 @@ const sampleProducts = [
     category: "Hats",
     name: "Bucket",
     images: ["/Bucketfront.svg", "/Bucketback.svg"],
-    price: "$18",
+    price: "$20",
     description: "Casual baseball cap for everyday style."
   },
 ];

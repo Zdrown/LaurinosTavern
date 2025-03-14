@@ -127,7 +127,7 @@ export default function Header() {
   </Link>
     <nav>
       {/* Always visible links */}
-      <Link href="/order" className="nav-link">
+      <Link href="/components/ComingSoonOrder" className="nav-link">
         Order
       </Link>
       <Link href="/components/menu" className="nav-link">

@@ -3,6 +3,8 @@
 import styled from 'styled-components';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useSearchParams } from 'next/navigation';
+import { useEffect } from 'react';
 
 
 // HERO SECTION
@@ -442,6 +444,23 @@ const CTAButton = styled.button`
 `;
 
 export default function HomePage() {
+  const searchParams = useSearchParams();
+  
+  useEffect(() => {
+    // Check if we should scroll to a section based on URL param
+    const scrollTo = searchParams.get('scrollTo');
+    
+    if (scrollTo) {
+      // Add a small delay to ensure the page is fully loaded
+      setTimeout(() => {
+        const element = document.getElementById(scrollTo);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  }, [searchParams]);
+
   return (
     <>
       <HeroSection>
@@ -458,7 +477,7 @@ export default function HomePage() {
       <div className="hero-content">
         <h1>Welcome to Laurino&apos;s Tavern</h1>
         <p>Serving up local favorites on Cape Cod for generations</p>
-        <a href="/menu" className="hero-cta">Order Now</a>
+        <a href="/components/menu" className="hero-cta">Order Now</a>
       </div>
     </HeroSection>
 
