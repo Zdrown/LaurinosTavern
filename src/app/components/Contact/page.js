@@ -171,7 +171,7 @@ const PageHeader = styled.div`
 
   h1 {
     font-family: 'Aloja', sans-serif;
-    font-size: 3rem;
+    font-size: 2.7rem;
     margin-bottom: 1rem;
   }
 
