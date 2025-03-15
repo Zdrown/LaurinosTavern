@@ -1121,23 +1121,35 @@ const CloseButton = styled.button`
   background: white;
   border: none;
   font-size: 1.8rem;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   color: ${({ theme }) => theme.colors.primaryDark};
-  transition: all 0.2s;
+  transition: background 0.2s;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  z-index: 100; /* Ensure it's above other content */
   
-  &:hover {
+  /* Add touch target padding */
+  padding: 0;
+  touch-action: manipulation; /* Prevents delays on touch devices */
+  
+  &:hover, &:active {
     background: ${({ theme }) => theme.colors.accent};
-    transform: rotate(90deg);
+  }
+  
+  /* Specific adjustments for mobile devices */
+  @media (max-width: 768px) {
+    width: 50px; /* Even larger on mobile */
+    height: 50px;
+    top: 0.75rem;
+    right: 0.75rem;
+    font-size: 2rem;
   }
 `;
-
 const ImageContainer = styled.div`
   position: relative;
   margin-bottom: 1rem;

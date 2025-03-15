@@ -287,7 +287,7 @@ const HeaderContainer = styled.header`
     /* Show mobile phone in the main nav */
     .mobile-phone-link {
       display: flex;
-      margin-left: .25rem; /* Add space between logo and phone icon */
+  margin-left: 4rem;/* Add space between logo and phone icon */
     }
     
     /* Enhanced styling for always visible mobile items */
