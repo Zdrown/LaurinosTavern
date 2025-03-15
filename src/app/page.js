@@ -529,7 +529,7 @@ export default function HomePage() {
               <img src="/FishTacos.jpg" alt="Fish Tacos" />
             </div>
             <div className="food-item">
-              <h3>Gourmet Pizza</h3>
+              <h3>Stone Fire Pizza</h3>
               <img src="/Pizza.png" alt="Pizza" />
             </div>
             <div className="food-item">
