@@ -131,7 +131,7 @@ const CTAButton = styled.div`
     white-space: nowrap; /* Force single line */
 
     &:hover {
-      background: ${({ theme }) => theme.colors.secondaryDark};
+      background: ${({ theme }) => theme.colors.bluePastel};
     }
   }
 

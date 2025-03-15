@@ -149,7 +149,7 @@ const ContactSection = styled.section`
 const PageHeader = styled.div`
   text-align: center;
   padding: 2rem 2rem 3rem;
-  background-color: #3a5666;
+  background-color: ${({ theme }) => theme.colors.bluePastel};
   position: relative;
 
   &::before {

@@ -350,7 +350,7 @@ export default function Header() {
           
           {/* Desktop-only links */}
           <div className="desktop-links">
-            <Link href="/components/Contact" className="nav-link">
+            <Link href="/components/ComingSoonOrder" className="nav-link">
               Order
             </Link>
             <Link href="/components/Contact" className="nav-link">
