@@ -100,7 +100,7 @@ export default function ContactPage() {
             </div>
             <div className="text">
               <h3>Phone</h3>
-              <p>(508) 896-6134</p>
+              <p><a href="tel:+15088966134" className="phone-link">(508) 896-6134</a></p>
             </div>
           </InfoCard>
 
@@ -113,7 +113,7 @@ export default function ContactPage() {
             </div>
             <div className="text">
               <h3>Email</h3>
-              <p>info@laurinostavern.com</p>
+              <p><a href="mailto:laurinosfeedback@gmail.com" className="email-link">laurinosfeedback@  gmail.com</a></p>
             </div>
           </InfoCard>
         </div>
@@ -148,7 +148,7 @@ const ContactSection = styled.section`
 
 const PageHeader = styled.div`
   text-align: center;
-  padding: 5rem 2rem 3rem;
+  padding: 2rem 2rem 3rem;
   background-color: #3a5666;
   position: relative;
 
@@ -268,7 +268,7 @@ const ContactCard = styled.div`
 
 const CTAButton = styled.button`
   display: inline-block;
-  background: ${({ theme }) => theme.colors.primaryDark};
+  background: ${({ theme }) => theme.colors.tertiaryDark};
   color: ${({ theme }) => theme.colors.primaryLight};
   padding: 0.75rem 1.5rem;
   border: none;
@@ -280,7 +280,7 @@ const CTAButton = styled.button`
   text-decoration: none;
 
   &:hover {
-    background: ${({ theme }) => theme.colors.secondaryDark};
+    background: ${({ theme }) => theme.colors.bluePastel};
   }
 `;
 
@@ -336,8 +336,29 @@ const InfoCard = styled.div`
       color: ${({ theme }) => theme.colors.secondaryDark};
       line-height: 1.5;
     }
-  }
 
+      .phone-link {
+      color: ${({ theme }) => theme.colors.secondaryDark};
+      text-decoration: none;
+      transition: color 0.3s ease;
+
+       &:hover {
+        color: ${({ theme }) => theme.colors.tertiaryDark};
+        text-decoration: underline;
+      }
+  }
+        .email-link {
+      color: ${({ theme }) => theme.colors.secondaryDark};
+      text-decoration: none;
+      transition: color 0.3s ease;
+      
+      &:hover {
+        color: ${({ theme }) => theme.colors.tertiaryDark};
+        text-decoration: underline;
+      }
+    }
+
+}
   @media (max-width: 480px) {
     width: 100%;
   }
