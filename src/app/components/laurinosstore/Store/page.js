@@ -21,7 +21,7 @@ const sampleProducts = [
     name: "Beer Koozie",
     images: ["/Canfront.svg", "/Canback.svg"],
     price: "$10",
-    description: "High-quality gear from Laurino's. Perfect for everyday use."
+    description: "High-quality koozie from Laurino's. Perfect for everyday use ."
   },
   {
     id: 2,
@@ -29,7 +29,7 @@ const sampleProducts = [
     name: "Premium Bag",
     images: ["/Bag.svg", "/Bagback3.svg"],
     price: "$20",
-    description: "Stylish and functional bag, great for travel or gym."
+    description: "Premium beach tote."
   },
   // T-Shirts
   {
@@ -57,7 +57,7 @@ const sampleProducts = [
     name: "Cozy Laurinos Sweatshirt",
     images: ["/Sweatshirtfront.svg", "/Sweatshirtback.svg"],
     price: "$35",
-    description: "Warm and comfy, perfect for cool evenings.",
+    description: "Premium Laurinos sweatshirt.",
     sizes: ["Small", "Medium", "Large", "XL"]
   },
   {
@@ -66,7 +66,7 @@ const sampleProducts = [
     name: "Modern Laurinos Hoodie",
     images: ["/Hoodiefront.svg", "/Hoodieback.svg"],
     price: "$50",
-    description: "Stylish design with a drawstring hood and front pocket.",
+    description: "Classic hoodie maroon washed.",
     sizes: ["Small", "Medium", "Large", "XL"]
   },
   // Hats
@@ -76,7 +76,7 @@ const sampleProducts = [
     name: "Laurinos Cap",
     images: ["/Hatnffront.svg", "/Hatnfback.svg"],
     price: "$28",
-    description: "A warm and trendy beanie for brisk weather."
+    description: "Laurinos x Northface limited time hat."
   },
   {
     id: 8,
@@ -84,7 +84,7 @@ const sampleProducts = [
     name: "Cap",
     images: ["/Hatwhite.svg", "/Whiteback.svg"],
     price: "$23",
-    description: "Casual baseball cap for everyday style."
+    description: "Gone fishing Laurinos trucker hat."
   },
   {
     id: 9,
@@ -92,7 +92,7 @@ const sampleProducts = [
     name: "Bucket",
     images: ["/Bucketfront.svg", "/Bucketback.svg"],
     price: "$20",
-    description: "Casual baseball cap for everyday style."
+    description: "Mega ultra sigma Laurinos bucket hat."
   },
 ];
 
