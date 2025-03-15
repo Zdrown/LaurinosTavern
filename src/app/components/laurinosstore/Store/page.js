@@ -4,7 +4,7 @@ import { useSearchParams } from "next/navigation";
 import styled from "styled-components";
 import Link from "next/link";
 import { FaArrowLeft, FaArrowRight, FaMinus, FaPlus, FaShoppingCart, FaTimes } from "react-icons/fa";
-import { useCart, CartModal, CartNotification } from "../../../context/CartContext";
+import { useCart, CartNotification } from "../../../context/CartContext";
 
 
 /* Categories for the sidebar */
@@ -212,6 +212,25 @@ function Cart() {
     proceedToCheckout
   } = useCart();
   
+  // Detect if we're on mobile
+  const [isMobile, setIsMobile] = useState(false);
+  
+  useEffect(() => {
+    // Check for mobile screen size
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    // Initial check
+    checkMobile();
+    
+    // Add resize listener
+    window.addEventListener('resize', checkMobile);
+    
+    // Cleanup
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+  
   useEffect(() => {
     if (cartVisible) {
       // Prevent body scrolling when cart is visible
@@ -227,13 +246,11 @@ function Cart() {
   }, [cartVisible]);
   
   if (!cartVisible) return null;
-
-
   
   return (
     <>
       <CartBackdrop $visible={cartVisible} onClick={() => setCartVisible(false)} />
-      <CartModal $visible={cartVisible}>
+      <MobileCartContainer $visible={cartVisible}>
         <div className="cart-header">
           <h2>Your Cart</h2>
           <button type="button" className="close-button" onClick={() => setCartVisible(false)}>
@@ -250,11 +267,13 @@ function Cart() {
             <div className="cart-items">
               {items.map((item) => (
                 <div className="cart-item" key={`cart-${item.id}-${item.size}`}>
-                  <img 
-                    className="cart-item-image" 
-                    src={item.image} 
-                    alt={item.name} 
-                  />
+                  <div className="cart-item-image-container">
+                    <img 
+                      className="cart-item-image" 
+                      src={item.image} 
+                      alt={item.name} 
+                    />
+                  </div>
                   
                   <div className="cart-item-details">
                     <div className="cart-item-name">{item.name}</div>
@@ -307,7 +326,7 @@ function Cart() {
             </div>
           </>
         )}
-      </CartModal>
+      </MobileCartContainer>
     </>
   );
 }
@@ -319,6 +338,7 @@ function StoreContent() {
   const [selectedCategory, setSelectedCategory] = useState(initialCat);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const { toggleCart, notification, totalItems, cartVisible } = useCart();
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const productsToShow = filterProducts(selectedCategory);
 
@@ -327,24 +347,57 @@ function StoreContent() {
     setSelectedCategory(initialCat);
   }, [initialCat]);
 
+  // Close sidebar when clicking outside on mobile
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (sidebarOpen && !event.target.closest('.sidebar-inner') && !event.target.closest('.menu-toggle')) {
+        setSidebarOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [sidebarOpen]);
+
   return (
     <>
-      <Sidebar>
-        <BrandLogo>Laurino's</BrandLogo>
-        <CategoryList>
-          {categories.map((cat) => (
-            <SidebarItem
-              key={`category-${cat}`}
-              $active={cat === selectedCategory}
-              onClick={() => setSelectedCategory(cat)}
-            >
-              {cat}
-            </SidebarItem>
-          ))}
-        </CategoryList>
+      <MobileMenuToggle 
+        className="menu-toggle" 
+        onClick={() => setSidebarOpen(!sidebarOpen)}
+         $hideWhenCartOpen={true}
+        $cartVisible={cartVisible}
+      >
+        <span />
+        <span />
+        <span />
+      </MobileMenuToggle>
+
+      {/* Dark overlay that appears when sidebar is open on mobile */}
+      <MenuBackdrop $isOpen={sidebarOpen} onClick={() => setSidebarOpen(false)} />
+
+      <Sidebar $isOpen={sidebarOpen}>
+        <div className="sidebar-inner">
+          <BrandLogo>Laurino's</BrandLogo>
+          <CategoryList>
+            {categories.map((cat) => (
+              <SidebarItem
+                key={`category-${cat}`}
+                $active={cat === selectedCategory}
+                onClick={() => {
+                  setSelectedCategory(cat);
+                  setSidebarOpen(false); // Close sidebar on mobile after selection
+                }}
+              >
+                {cat}
+              </SidebarItem>
+            ))}
+          </CategoryList>
+        </div>
       </Sidebar>
 
-      <ContentArea>
+      <ContentArea $sidebarOpen={sidebarOpen}>
         <StoreHeader>
           <CategoryHeader>{selectedCategory}</CategoryHeader>
           <CartButton onClick={toggleCart}>
@@ -426,6 +479,254 @@ export default function LaurinosStorePage() {
 
 /* --------------------- Styled Components --------------------- */
 
+/* Mobile-optimized Cart Container */
+const MobileCartContainer = styled.div`
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  width: 90%;
+  max-width: 500px;
+  height: auto;
+  max-height: 85vh;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  z-index: 999;
+  opacity: ${props => props.$visible ? 1 : 0};
+  visibility: ${props => props.$visible ? 'visible' : 'hidden'};
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  
+  @media (max-width: 768px) {
+    /* Position just below the header */
+    top: 80px; /* Adjust this value to match your header height */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: 100%;
+    transform: none;
+    border-radius: 0;
+    height: calc(100vh - 70px); /* Full height minus header */
+    max-height: none;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+  }
+  
+  /* Cart layout with three distinct sections */
+  display: flex;
+  flex-direction: column;
+  
+  .cart-header {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #eee;
+  
+    h2 {
+      margin: 0;
+      font-size: 1.5rem;
+      font-weight: 600;
+      font-family: "Aloja", serif;
+    }
+    
+    .close-button {
+      border: none;
+      background: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      padding: 0;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: background 0.2s;
+      
+      &:hover {
+        background: #f0f0f0;
+      }
+    }
+  }
+  
+  .empty-cart {
+    padding: 2rem;
+    text-align: center;
+    font-size: 1.1rem;
+    color: #777;
+    flex: 1;
+  }
+  
+  .cart-items {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    min-height: 0; /* Important for flex containers with overflow */
+    
+    .cart-item {
+      display: flex;
+      padding: 1rem 0;
+      border-bottom: 1px solid #eee;
+      position: relative;
+      
+      &:last-child {
+        border-bottom: none;
+      }
+      
+      .cart-item-image-container {
+        width: 80px;
+        flex-shrink: 0;
+        margin-right: 1rem;
+        
+        .cart-item-image {
+          width: 100%;
+          height: 80px;
+          object-fit: cover;
+          border-radius: 6px;
+        }
+      }
+      
+      .cart-item-details {
+        flex: 1;
+        padding-right: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
+        .cart-item-name {
+          font-weight: 600;
+          font-size: 1rem;
+          margin-bottom: 4px;
+        }
+        
+        .cart-item-meta {
+          font-size: 0.85rem;
+          color: #777;
+          margin-bottom: 4px;
+        }
+        
+        .cart-item-price {
+          font-weight: 600;
+          font-size: 0.95rem;
+        }
+      }
+      
+      .cart-item-actions {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        
+        .quantity-control {
+          display: flex;
+          align-items: center;
+          margin-bottom: 0.75rem;
+          
+          button {
+            width: 30px;
+            height: 30px;
+            border: 1px solid #ddd;
+            background: #f7f7f7;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            
+            &:hover {
+              background: #f0f0f0;
+            }
+          }
+          
+          span {
+            min-width: 30px;
+            text-align: center;
+            font-weight: 600;
+            margin: 0 0.5rem;
+          }
+        }
+        
+        .remove-button {
+          border: none;
+          background: none;
+          color: #999;
+          cursor: pointer;
+          font-size: 0.85rem;
+          
+          &:hover {
+            color: #f00;
+          }
+        }
+      }
+    }
+  }
+  
+  .cart-footer {
+    flex-shrink: 0;
+    padding: 1.5rem;
+    border-top: 1px solid #eee;
+    
+    .cart-total {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1.2rem;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+    
+    .checkout-button {
+      width: 100%;
+      background: ${({ theme }) => theme.colors.primaryDark};
+      color: white;
+      border: none;
+      padding: 1rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      
+      &:hover {
+        background: ${({ theme }) => theme.colors.secondaryDark};
+      }
+    }
+  }
+  
+  @media (max-width: 480px) {
+    width: 100%;
+    
+    .cart-header h2 {
+      font-size: 1.3rem;
+    }
+    
+    .cart-items {
+      padding: 0.75rem;
+      
+      .cart-item {
+        padding: 0.75rem 0;
+        
+        .cart-item-image-container {
+          width: 70px;
+          
+          .cart-item-image {
+            height: 70px;
+          }
+        }
+      }
+    }
+    
+    .cart-footer .checkout-button {
+      margin-bottom:5rem;
+      padding: .85rem;
+    }
+  }
+`; 
+
 /* Container for the entire store page */
 const StoreContainer = styled.div`
   display: flex;
@@ -434,6 +735,64 @@ const StoreContainer = styled.div`
   color: ${({ theme }) => theme.colors.primaryDark};
   font-family: 'Inter', sans-serif;
   position: relative;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+`;
+
+/* Mobile menu backdrop for solid overlay when menu is open */
+const MenuBackdrop = styled.div`
+  display: none;
+  
+  @media (max-width: 768px) {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+    opacity: ${props => props.$isOpen ? 1 : 0};
+    visibility: ${props => props.$isOpen ? 'visible' : 'hidden'};
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    pointer-events: ${props => props.$isOpen ? 'auto' : 'none'};
+  }
+`;
+
+/* Mobile menu toggle button */
+const MobileMenuToggle = styled.button`
+  display: none;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  width: 40px;
+  height: 40px;
+  background: ${({ theme }) => theme.colors.accent};
+  border: none;
+  border-radius: 4px;
+  z-index: 1001;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  
+  span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background: ${({ theme }) => theme.colors.primaryDark};
+    border-radius: 3px;
+    transition: all 0.3s ease;
+  }
+  
+  @media (max-width: 768px) {
+    
+    display: ${props => props.$hideWhenCartOpen && props.$cartVisible ? 'none' : 'flex'};
+  }
+  }
 `;
 
 /* Left sidebar with categories */
@@ -445,6 +804,22 @@ const Sidebar = styled.div`
   display: flex;
   flex-direction: column;
   box-shadow: 2px 0 15px rgba(0, 0, 0, 0.05);
+  z-index: 10;
+  
+  @media (max-width: 768px) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    transform: translateX(${props => props.$isOpen ? '0' : '-100%'});
+    transition: transform 0.3s ease;
+    overflow-y: auto;
+    width: 250px;
+    z-index: 1000;
+    padding-top: 70px;
+    font-size: 1.2rem; /* Increased font size for mobile */
+    padding: 1rem 1.2rem; 
+  }
 `;
 
 const BrandLogo = styled.div`
@@ -454,6 +829,11 @@ const BrandLogo = styled.div`
   margin-bottom: 2.5rem;
   color: ${({ theme }) => theme.colors.primaryDark};
   text-align: center;
+
+  @media (max-width: 768px) {
+    margin-top: 4rem;
+   
+  }
 `;
 
 const CategoryList = styled.div`
@@ -484,6 +864,14 @@ const ContentArea = styled.div`
   padding: 3rem;
   background: #fafafa;
   position: relative;
+  
+  @media (max-width: 768px) {
+    padding: 2rem 1rem;
+    margin-left: 0;
+    transition: opacity 0.3s ease;
+    opacity: ${props => props.$sidebarOpen ? '0.5' : '1'};
+    pointer-events: ${props => props.$sidebarOpen ? 'none' : 'auto'};
+  }
 `;
 
 /* Store header with category title and cart button */
@@ -494,6 +882,10 @@ const StoreHeader = styled.div`
   margin-bottom: 2rem;
   position: relative;
   z-index: 2;
+  
+  @media (max-width: 768px) {
+    margin-top: 40px;
+  }
 `;
 
 /* Category title at the top */
@@ -513,6 +905,10 @@ const CategoryHeader = styled.h2`
     height: 3px;
     background: ${({ theme }) => theme.colors.primaryDark};
     border-radius: 3px;
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 1.8rem;
   }
 `;
 
@@ -562,9 +958,14 @@ const ProductGrid = styled.div`
   gap: 2.5rem;
   margin-top: 2rem;
   
-  /* When cart is visible, show products in two columns */
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
   
-  
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 /* The product card: vertical layout with an image on top */
@@ -602,6 +1003,11 @@ const ImageWrapper = styled.div`
   &:hover .hover-overlay {
     opacity: 1;
     transform: translateY(0);
+  }
+  
+  @media (max-width: 768
+  @media (max-width: 768px) {
+    height: 300px;
   }
 `;
 
@@ -699,6 +1105,13 @@ const ModalContent = styled.div`
   text-align: center;
   position: relative;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+    width: 95%;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
 `;
 
 const CloseButton = styled.button`
@@ -752,6 +1165,12 @@ const NavArrow = styled.button`
     background: ${({ theme }) => theme.colors.accent};
     transform: translateY(-50%) scale(1.1);
   }
+  
+  @media (max-width: 768px) {
+    ${props => props.$left ? 'left: 5px;' : 'right: 5px;'}
+    width: 30px;
+    height: 30px;
+  }
 `;
 
 const ModalImage = styled.img`
@@ -760,6 +1179,10 @@ const ModalImage = styled.img`
   object-fit: cover;
   border-radius: 12px;
   transition: all 0.3s ease;
+  
+  @media (max-width: 768px) {
+    height: 300px;
+  }
 `;
 
 const ImageDots = styled.div`
@@ -790,6 +1213,10 @@ const ModalTitle = styled.h3`
   font-size: 2.2rem;
   margin: 1rem 0 0.5rem;
   color: ${({ theme }) => theme.colors.primaryDark};
+  
+  @media (max-width: 768px) {
+    font-size: 1.8rem;
+  }
 `;
 
 const ModalPrice = styled.div`
@@ -804,10 +1231,19 @@ const ModalDescription = styled.p`
   line-height: 1.6;
   margin-bottom: 2rem;
   color: ${({ theme }) => theme.colors.secondaryDark};
+  
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
 `;
 
 const SizeSelector = styled.div`
   margin-bottom: 2rem;
+  
+  @media (max-width: 768px) {
+    margin-bottom: 1.5rem;
+  }
 `;
 
 const SizeLabel = styled.p`
@@ -821,8 +1257,14 @@ const SizeOptions = styled.div`
   display: flex;
   justify-content: center;
   gap: 0.75rem;
+  flex-wrap: wrap;
+  
+  @media (max-width: 768px) {
+    gap: 0.5rem;
+  }
 `;
 
+// Size Button Component
 const SizeButton = styled.button`
   padding: 0.5rem 1.2rem;
   border: 2px solid ${({ $selected, theme }) => 
@@ -840,8 +1282,14 @@ const SizeButton = styled.button`
     border-color: ${({ theme }) => theme.colors.primaryDark};
     transform: translateY(-2px);
   }
+  
+  @media (max-width: 768px) {
+    padding: 0.4rem 1rem;
+    font-size: 0.9rem;
+  }
 `;
 
+// Add to Cart Button Component
 const AddToCartButton = styled.button`
   background: ${({ theme }) => theme.colors.primaryDark};
   color: white;
@@ -863,9 +1311,15 @@ const AddToCartButton = styled.button`
   &:active {
     transform: translateY(-1px);
   }
+  
+  @media (max-width: 768px) {
+    padding: 0.8rem 2rem;
+    width: 100%;
+    font-size: 1rem;
+  }
 `;
 
-/* Cart backdrop that covers the content area */
+// Cart Backdrop Component
 const CartBackdrop = styled.div`
   position: fixed;
   top: 0;
@@ -878,4 +1332,9 @@ const CartBackdrop = styled.div`
   visibility: ${props => props.$visible ? 'visible' : 'hidden'};
   transition: opacity 0.3s ease, visibility 0.3s ease;
   pointer-events: ${props => props.$visible ? 'auto' : 'none'};
+  
+  @media (max-width: 768px) {
+    background: rgba(0, 0, 0, 0.7);
+
+  }
 `;
