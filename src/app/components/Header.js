@@ -343,7 +343,7 @@ export default function Header() {
           {/* Always visible links */}
           <div className="always-visible-links">
             {/* Mobile-only phone link that appears between main nav items */}
-            <a href="tel:+15085551234" className="nav-link mobile-phone-link">
+            <a href="tel:+15088966135" className="nav-link mobile-phone-link">
               <FontAwesomeIcon icon={faPhone} className="phone-icon" />
             </a>
           </div>

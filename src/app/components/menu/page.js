@@ -57,30 +57,53 @@ export default function MenuPage() {
                 <div className="item-info">
                   <span className="item-name">Potato Skins</span>
                   <div className="item-line" />
-                  <span className="item-price">$11.50</span>
+                  <span className="item-price">$11/10</span>
                 </div>
                 <p className="item-desc">
-                  A local favorite stuffed with bacon, peppers, &amp; arugula.
+              Served with cheddar and bacon
+                </p>
+              </MenuItem>
+              <MenuItem>
+                <div className="item-info">
+                  <span className="item-name">Quahog</span>
+                  <div className="item-line" />
+                  <span className="item-price">$6.50</span>
+                </div>
+                <p className="item-desc">
+                a local favorite stuffed with breads
+                onions, peppers & linguica
                 </p>
               </MenuItem>
               <MenuItem>
                 <div className="item-info">
                   <span className="item-name">Fried Calamari</span>
                   <div className="item-line" />
-                  <span className="item-price">$13</span>
+                  <span className="item-price">$12</span>
                 </div>
                 <p className="item-desc">
-                  Rings &amp; linguica served with marinara sauce.
+                banana peppers & linguica with
+                cocktail sauce
                 </p>
               </MenuItem>
               <MenuItem>
                 <div className="item-info">
                   <span className="item-name">Chicken Wings (1/2 lb)</span>
                   <div className="item-line" />
-                  <span className="item-price">$9</span>
+                  <span className="item-price">$13</span>
                 </div>
                 <p className="item-desc">
-                  Tossed in your choice of sauce. Ask for available flavors!
+                buffalo, plain or sriracha served with
+                celery + bleu cheese dressing
+                </p>
+              </MenuItem>
+              <MenuItem>
+                <div className="item-info">
+                  <span className="item-name">French Fries</span>
+                  <div className="item-line" />
+                  <span className="item-price">$6</span>
+                </div>
+                <p className="item-desc">
+                  Classic favorite add parmesan +2$
                 </p>
               </MenuItem>
               <MenuItem>
@@ -95,16 +118,39 @@ export default function MenuPage() {
               </MenuItem>
               <MenuItem>
                 <div className="item-info">
+                  <span className="item-name">Onion Rings</span>
+                  <div className="item-line" />
+                  <span className="item-price">$7</span>
+                </div>
+                <p className="item-desc">
+
+                </p>
+              </MenuItem>
+              <MenuItem>
+                <div className="item-info">
                   <span className="item-name">Cod Fingers</span>
+                  <div className="item-line" />
+                  <span className="item-price">$14</span>
+                </div>
+                <p className="item-desc">
+                crispy fried cod fingers with
+                tartar sauce*
+                </p>
+              </MenuItem>
+              <MenuItem>
+                <div className="item-info">
+                  <span className="item-name">Chicken Fingers</span>
                   <div className="item-line" />
                   <span className="item-price">$10</span>
                 </div>
                 <p className="item-desc">
-                  Crispy fried cod strips served with tartar sauce.
+                4 chicken fingers, celery and a choice of
+                sauce
                 </p>
               </MenuItem>
             </div>
           </MenuCategory>
+          
         )}
 
         {/* 2. Salads */}
@@ -119,7 +165,7 @@ export default function MenuPage() {
                   <span className="item-price">—</span>
                 </div>
                 <p className="item-desc">
-                  Chicken or Shrimp ($10), Steak Tips or Swordfish ($13), Salmon ($14)
+                  Chicken ($7) Shrimp ($10), Steak Tips or Swordfish ($13), Salmon ($13)
                 </p>
               </MenuItem>
               <MenuItem>
@@ -129,27 +175,60 @@ export default function MenuPage() {
                   <span className="item-price">$7</span>
                 </div>
                 <p className="item-desc">
-                  Classic garden mix with fresh veggies &amp; choice of dressing.
+                iceberg, red cabbage, carrots
+                cucumbers, cherry tomato
+                </p>
+              </MenuItem>
+              <MenuItem>
+                <div className="item-info">
+                  <span className="item-name">Cesar Salad</span>
+                  <div className="item-line" />
+                  <span className="item-price">$14</span>
+                </div>
+                <p className="item-desc">
+                classic caesar served with
+                 cheese + homemade croutons
                 </p>
               </MenuItem>
               <MenuItem>
                 <div className="item-info">
                   <span className="item-name">Greek Feta Salad</span>
                   <div className="item-line" />
-                  <span className="item-price">$14</span>
+                  <span className="item-price">$17</span>
                 </div>
                 <p className="item-desc">
-                  Crisp romaine, olives, feta cheese, cherry tomatoes, and cucumber.
                 </p>
               </MenuItem>
               <MenuItem>
                 <div className="item-info">
                   <span className="item-name">Wedge Salad</span>
                   <div className="item-line" />
-                  <span className="item-price">$14</span>
+                  <span className="item-price">$17</span>
                 </div>
                 <p className="item-desc">
                   With bacon and blue cheese dressing, plus fresh toppings.
+                </p>
+              </MenuItem>
+              <MenuItem>
+                <div className="item-info">
+                  <span className="item-name">Brewster Salad</span>
+                  <div className="item-line" />
+                  <span className="item-price">$17</span>
+                </div>
+                <p className="item-desc">
+                greens, craisins, blue cheese
+                candied pecans
+                </p>
+              </MenuItem>
+              <MenuItem>
+                <div className="item-info">
+                  <span className="item-name">Antipasto Salad</span>
+                  <div className="item-line" />
+                  <span className="item-price">$17</span>
+                </div>
+                <p className="item-desc">
+                with hard salami, genoa salami &
+                ham + provolone cheese
                 </p>
               </MenuItem>
             </div>

@@ -150,7 +150,15 @@ const CarouselSection = styled.section`
     color: ${({ theme }) => theme.colors.primaryLight};
     margin-bottom: 2rem;
     font-family: 'Aloja';
+}
+  .subtext  {
+    color: ${({ theme }) => theme.colors.primaryDark};
+    margin-bottom: .25rem;
+       
   }
+
+
+
 
   /* The carousel of items */
   .carousel {
@@ -420,6 +428,8 @@ const CTAButton = styled.button`
        font-family: 'Aloja';
   }
 
+
+
   .webcam-wrapper {
     /* Center the container and give it a max width for desktop */
     max-width: 1200px; 
@@ -518,14 +528,15 @@ export default function HomePage() {
 
           <CarouselSection>
           <h2>Try Our Favorites</h2>
+          <p className="subtext">** items coming soon **</p>
           <div className="carousel">
             <div className="food-item">
-              <h3>Lobster Roll</h3>
+              <h3>*Lobster Roll*</h3>
               <img src="/LobsterRoll.jpg" alt="Lobster Roll" />
            
             </div>
             <div className="food-item">
-              <h3> Fish Tacos</h3>
+              <h3> *Fish Tacos*</h3>
               <img src="/FishTacos.jpg" alt="Fish Tacos" />
             </div>
             <div className="food-item">
@@ -533,7 +544,7 @@ export default function HomePage() {
               <img src="/Pizza.png" alt="Pizza" />
             </div>
             <div className="food-item">
-              <h3>Fish &amp; Chips</h3>
+              <h3>*Fish &amp; Chips*</h3>
               <img src="/FishandChips.jpg" alt="Fish &amp; Chips" />
             </div>
             <div className="food-item">
@@ -541,7 +552,7 @@ export default function HomePage() {
               <img src="/Burger.jpg" alt="Oysters"  />
             </div>
             <div className="food-item">
-              <h3>Oysters</h3>
+              <h3>*Oysters*</h3>
               <img src="/Oysters.jpg" alt="Clam Chowder" />
             </div>
             <div className="food-item">
