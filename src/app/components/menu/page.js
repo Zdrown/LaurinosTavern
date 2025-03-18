@@ -682,7 +682,7 @@ export default function MenuPage() {
         )}
 
        {/* 7. Entree */}
-{activeCategory === "Entree" && (
+{activeCategory === "Entrées" && (
   <MenuCategory>
     <h2>Entree</h2>
     <p className="category-note">Dinners Served After 4 Add A House Salad Or Cup Of Chowder + $5</p>
@@ -859,9 +859,9 @@ export default function MenuPage() {
 )}
 
      {/* 8. Substitution Prices */}
-{activeCategory === "Substitution Prices" && (
+{activeCategory === "Sides" && (
   <MenuCategory>
-    <h2>Substitution Prices</h2>
+    <h2>Sides</h2>
     <div className="items">
       <MenuItem>
         <div className="item-info">
