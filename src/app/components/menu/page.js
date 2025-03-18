@@ -227,7 +227,7 @@ export default function MenuPage() {
                   <span className="item-price">$17</span>
                 </div>
                 <p className="item-desc">
-                with hard salami, genoa salami &
+                with salami, genoa salami &
                 ham + provolone cheese
                 </p>
               </MenuItem>
@@ -235,62 +235,120 @@ export default function MenuPage() {
           </MenuCategory>
         )}
 
-        {/* 3. Burgers, Dogs & Sandwiches */}
-        {activeCategory === "Burgers & Sandwiches" && (
-          <MenuCategory>
-            <h2>Burgers, Dogs &amp; Sandwiches</h2>
-            <p className="category-note">Served with Potato Salad or Cole Slaw</p>
-            <div className="items">
-              <MenuItem>
-                <div className="item-info">
-                  <span className="item-name">Hamburger</span>
-                  {/* biome-ignore lint/style/useSelfClosingElements: <explanation> */}
-                  <div className="item-line"></div>
-                  <span className="item-price">$13</span>
-                </div>
-                <p className="item-desc">Add cheese +$1, add bacon +$1.75</p>
-              </MenuItem>
-              <MenuItem>
-                <div className="item-info">
-                  <span className="item-name">Grilled Hot Dog</span>
-                  <div className="item-line" />
-                  <span className="item-price">$6</span>
-                </div>
-                <p className="item-desc">Comes with potato salad.</p>
-              </MenuItem>
-              <MenuItem>
-                <div className="item-info">
-                  <span className="item-name">Fish Sandwich</span>
-                  <div className="item-line" />
-                  <span className="item-price">$13</span>
-                </div>
-                <p className="item-desc">
-                  Served on a bun with lettuce &amp; tartar sauce.
-                </p>
-              </MenuItem>
-              <MenuItem>
-                <div className="item-info">
-                  <span className="item-name">Crispy Chicken Sandwich</span>
-                  <div className="item-line" />
-                  <span className="item-price">$13</span>
-                </div>
-                <p className="item-desc">
-                  Fried chicken breast with lettuce, tomato, and mayo.
-                </p>
-              </MenuItem>
-              <MenuItem>
-                <div className="item-info">
-                  <span className="item-name">Philly Cheese Subs</span>
-                  <div className="item-line" />
-                  <span className="item-price">$13</span>
-                </div>
-                <p className="item-desc">
-                  Steak or chicken with peppers, onions, and melted cheese.
-                </p>
-              </MenuItem>
-            </div>
-          </MenuCategory>
-        )}
+      {/* 3. Burgers, Dogs & Sandwiches */}
+{activeCategory === "Burgers & Sandwiches" && (
+  <MenuCategory>
+    <h2>Burgers, Dogs &amp; Sandwiches</h2>
+    <p className="category-note">Served with Potato Salad or Cole Slaw</p>
+    <div className="items">
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Hamburger</span>
+          {/* biome-ignore lint/style/useSelfClosingElements: <explanation> */}
+          <div className="item-line"></div>
+          <span className="item-price">$13</span>
+        </div>
+        <p className="item-desc">Add cheese +$1.50, add bacon +$1.75</p>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Grilled Hot Dog</span>
+          <div className="item-line" />
+          <span className="item-price">$6</span>
+        </div>
+        <p className="item-desc">Comes with potato salad</p>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">2 Dogs &amp; Fries</span>
+          <div className="item-line" />
+          <span className="item-price">$15</span>
+        </div>
+        <p className="item-desc">Cheddar &amp; bacon or cheddar</p>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Fish Sandwich</span>
+          <div className="item-line" />
+          <span className="item-price">$17</span>
+        </div>
+        <p className="item-desc">Fried cod sandwich with lettuce, tomato and onion, tartar sauce</p>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Crispy Chicken Sandwich</span>
+          <div className="item-line" />
+          <span className="item-price">$14</span>
+        </div>
+        <p className="item-desc">Fried chicken fingers, cheese &amp; bacon</p>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Philly Cheese Subs</span>
+          <div className="item-line" />
+          <span className="item-price">$14</span>
+        </div>
+        <p className="item-desc">Steak or chicken with onion, peppers, mushrooms</p>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">BLT</span>
+          <div className="item-line" />
+          <span className="item-price">$13</span>
+        </div>
+        <p className="item-desc">With lettuce, tomato, + cheese</p>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Baked Ham</span>
+          <div className="item-line" />
+          <span className="item-price">$13</span>
+        </div>
+        <p className="item-desc">With lettuce, tomato, onion + cheese</p>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">White Meat Tuna</span>
+          <div className="item-line" />
+          <span className="item-price">$13</span>
+        </div>
+        <p className="item-desc">With lettuce, tomato, onion + cheese</p>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Roast Beef</span>
+          <div className="item-line" />
+          <span className="item-price">$14</span>
+        </div>
+        <p className="item-desc">With lettuce, tomato, onion + cheese</p>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">French Roast Beef Dip</span>
+          <div className="item-line" />
+          <span className="item-price">$14</span>
+        </div>
+        <p className="item-desc">Blue cheese and swiss + homemade au jus</p>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Italian Cold Cut</span>
+          <div className="item-line" />
+          <span className="item-price">$13</span>
+        </div>
+        <p className="item-desc">With lettuce, tomato, onion + cheese</p>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Veal Parmesan</span>
+          <div className="item-line" />
+          <span className="item-price">$17</span>
+        </div>
+        <p className="item-desc">With marinara sauce, cheese</p>
+      </MenuItem>
+    </div>
+  </MenuCategory>
+)}
 
         {/* 4. Soups */}
         {activeCategory === "Soups" && (
@@ -307,346 +365,268 @@ export default function MenuPage() {
               </MenuItem>
               <MenuItem>
                 <div className="item-info">
-                  <span className="item-name">French Onion</span>
+                  <span className="item-name">Baked Onion Soup Au Gratin</span>
                   <div className="item-line" />
-                  <span className="item-price">$7</span>
+                  <span className="item-price">$8</span>
                 </div>
                 <p className="item-desc">
-                  Topped with croutons and melted cheese.
+                  Onion infuse soup made daily.
                 </p>
               </MenuItem>
             </div>
           </MenuCategory>
         )}
 
-        {/* 5. Grinders */}
-        {activeCategory === "Grinders" && (
-          <MenuCategory>
-            <h2>Grinders</h2>
-            <div className="items-grid">
-              <MenuItem>
-                <div className="item-info">
-                  <span className="item-name">Italian Sausage</span>
-                  <div className="item-line" />
-                  <span className="item-price">$13</span>
-                </div>
-                <p className="item-desc">Hearty and full of flavor.</p>
-              </MenuItem>
-              <MenuItem>
-                <div className="item-info">
-                  <span className="item-name">Italian Linguica</span>
-                  <div className="item-line" />
-                  <span className="item-price">$13</span>
-                </div>
-                <p className="item-desc">Spicy sausage with peppers &amp; onions.</p>
-              </MenuItem>
-              <MenuItem>
-                <div className="item-info">
-                  <span className="item-name">Sausage &amp; Peppers</span>
-                  <div className="item-line" />
-                  <span className="item-price">$14</span>
-                </div>
-                <p className="item-desc">Classic grinder style with marinara.</p>
-              </MenuItem>
-              <MenuItem>
-                <div className="item-info">
-                  <span className="item-name">Meatball</span>
-                  <div className="item-line" />
-                  <span className="item-price">$13</span>
-                </div>
-                <p className="item-desc">Homemade meatballs &amp; sauce.</p>
-              </MenuItem>
-              <MenuItem>
-                <div className="item-info">
-                  <span className="item-name">Eggplant</span>
-                  <div className="item-line" />
-                  <span className="item-price">$14</span>
-                </div>
-                <p className="item-desc">Lightly breaded with marinara &amp; cheese.</p>
-              </MenuItem>
-              <MenuItem>
-                <div className="item-info">
-                  <span className="item-name">Veal Parmesan</span>
-                  <div className="item-line" />
-                  <span className="item-price">$17</span>
-                </div>
-                <p className="item-desc">Served with marinara sauce.</p>
-              </MenuItem>
-              <MenuItem>
-                <div className="item-info">
-                  <span className="item-name">Italian Cold Cut</span>
-                  <div className="item-line" />
-                  <span className="item-price">$13</span>
-                </div>
-                <p className="item-desc">Assorted meats, lettuce, tomato, &amp; cheese.</p>
-              </MenuItem>
-              <MenuItem>
-                <div className="item-info">
-                  <span className="item-name">BLT</span>
-                  <div className="item-line" />
-                  <span className="item-price">$13</span>
-                </div>
-                <p className="item-desc">Bacon, lettuce, tomato on a grinder roll.</p>
-              </MenuItem>
-              <MenuItem>
-                <div className="item-info">
-                  <span className="item-name">Baked Ham</span>
-                  <div className="item-line" />
-                  <span className="item-price">$13</span>
-                </div>
-                <p className="item-desc">Smoky ham with melted cheese.</p>
-              </MenuItem>
-              <MenuItem>
-                <div className="item-info">
-                  <span className="item-name">Baked Meatball</span>
-                  <div className="item-line" />
-                  <span className="item-price">$14</span>
-                </div>
-                <p className="item-desc">Extra cheese, extra sauce—baked to perfection.</p>
-              </MenuItem>
-              <MenuItem>
-                <div className="item-info">
-                  <span className="item-name">Baked Chicken</span>
-                  <div className="item-line" />
-                  <span className="item-price">$14</span>
-                </div>
-                <p className="item-desc">Tender chicken, sauce &amp; cheese, oven-baked.</p>
-              </MenuItem>
-              <MenuItem>
-                <div className="item-info">
-                  <span className="item-name">Baked Eggplant</span>
-                  <div className="item-line" />
-                  <span className="item-price">$14</span>
-                </div>
-                <p className="item-desc">Oven-baked with sauce, cheese &amp; herbs.</p>
-              </MenuItem>
-            </div>
-          </MenuCategory>
-        )}
+     {/* 4. Grinders */}
+{activeCategory === "Grinders" && (
+  <MenuCategory>
+    <h2>Grinders</h2>
+    <p className="category-note">Served with Potato Salad or Cole Slaw</p>
+    <div className="items">
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Italian Ground Sausage</span>
+          {/* biome-ignore lint/style/useSelfClosingElements: <explanation> */}
+          <div className="item-line"></div>
+          <span className="item-price">$13</span>
+        </div>
+        <p className="item-desc">With marinara sauce, cheese</p>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Sliced Meatball</span>
+          <div className="item-line" />
+          <span className="item-price">$13</span>
+        </div>
+        <p className="item-desc">With marinara sauce, cheese</p>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Combo Grinder</span>
+          <div className="item-line" />
+          <span className="item-price">$14</span>
+        </div>
+        <p className="item-desc">Sausage, meatball with marinara sauce, cheese</p>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Chicken Parmesan</span>
+          <div className="item-line" />
+          <span className="item-price">$16</span>
+        </div>
+        <p className="item-desc">With marinara sauce, cheese</p>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Eggplant</span>
+          <div className="item-line" />
+          <span className="item-price">$14</span>
+        </div>
+        <p className="item-desc">With marinara sauce, cheese</p>
+      </MenuItem>
+    </div>
+  </MenuCategory>
+)}
 
-        {/* 6. Fried Platters */}
-        {activeCategory === "Fried Platters" && (
-          <MenuCategory>
-            <h2>Fried Platters</h2>
-            <p className="category-note">
-              Served with Tartar Sauce, Cole Slaw &amp; Fries
-            </p>
-            <p className="category-note">Add salad or cup of chowder +$2</p>
-            <div className="items">
-              <MenuItem>
-                <div className="item-info">
-                  <span className="item-name">Fried Haddock</span>
-                  <div className="item-line" />
-                  <span className="item-price">MP</span>
-                </div>
-                <p className="item-desc">
-                  Fresh local haddock, lightly battered.
-                </p>
-              </MenuItem>
-              <MenuItem>
-                <div className="item-info">
-                  <span className="item-name">Fried Scallop</span>
-                  <div className="item-line" />
-                  <span className="item-price">MP</span>
-                </div>
-                <p className="item-desc">
-                  Succulent scallops from local waters.
-                </p>
-              </MenuItem>
-              <MenuItem>
-                <div className="item-info">
-                  <span className="item-name">Fried Clam Strip</span>
-                  <div className="item-line" />
-                  <span className="item-price">MP</span>
-                </div>
-                <p className="item-desc">
-                  Golden-fried clam strips with lemon wedge.
-                </p>
-              </MenuItem>
-              <MenuItem>
-                <div className="item-info">
-                  <span className="item-name">Fried Calamari Platter</span>
-                  <div className="item-line" />
-                  <span className="item-price">MP</span>
-                </div>
-                <p className="item-desc">
-                  Crispy calamari rings &amp; tentacles.
-                </p>
-              </MenuItem>
-            </div>
-          </MenuCategory>
-        )}
-
-        {/* 7. Pizza */}
-        {activeCategory === "Pizza" && (
-          <MenuCategory>
-            <h2>Pizza</h2>
-            <p className="category-note">
-              Toppings: Artichoke, Anchovy, Basil, Broccoli, Chicken, Eggplant,
-              Diced Tomatoes, Feta, Garlic, Green Peppers, Ham, Jalapenos, Linguica,
-              Meatball, Mushrooms, Olives, Onions, Pepperoni, Pesto, Pineapple,
-              Ricotta, Salmon, Spinach, Sausage, Roasted Red Peppers
-            </p>
-
-            <div className="pizza-section">
-              <div className="pizza-size">
-                <h3>Small 10" (Serves 1-2)</h3>
-                <div className="items">
-                  <MenuItem>
-                    <div className="item-info">
-                      <span className="item-name">Cheese / Gluten Free</span>
-                      <div className="item-line" />
-                      <span className="item-price">$11</span>
-                    </div>
-                  </MenuItem>
-                  <MenuItem>
-                    <div className="item-info">
-                      <span className="item-name">1 Topping</span>
-                      <div className="item-line" />
-                      <span className="item-price">$12.50</span>
-                    </div>
-                  </MenuItem>
-                  <MenuItem>
-                    <div className="item-info">
-                      <span className="item-name">2 Toppings</span>
-                      <div className="item-line" />
-                      <span className="item-price">$13.50</span>
-                    </div>
-                  </MenuItem>
-                  <MenuItem>
-                    <div className="item-info">
-                      <span className="item-name">3 Toppings</span>
-                      <div className="item-line" />
-                      <span className="item-price">$14.50</span>
-                    </div>
-                  </MenuItem>
-                  <MenuItem>
-                    <div className="item-info">
-                      <span className="item-name">4 Toppings</span>
-                      <div className="item-line" />
-                      <span className="item-price">$15.50</span>
-                    </div>
-                  </MenuItem>
-                  <MenuItem>
-                    <div className="item-info">
-                      <span className="item-name">Extra Cheese</span>
-                      <div className="item-line" />
-                      <span className="item-price">$1</span>
-                    </div>
-                  </MenuItem>
-                </div>
-              </div>
-
-              <div className="pizza-size">
-                <h3>Large Rectangular (Serves 3-5)</h3>
-                <div className="items">
-                  <MenuItem>
-                    <div className="item-info">
-                      <span className="item-name">Cheese</span>
-                      <div className="item-line" />
-                      <span className="item-price">$15</span>
-                    </div>
-                  </MenuItem>
-                  <MenuItem>
-                    <div className="item-info">
-                      <span className="item-name">1 Topping</span>
-                      <div className="item-line" />
-                      <span className="item-price">$16</span>
-                    </div>
-                  </MenuItem>
-                  <MenuItem>
-                    <div className="item-info">
-                      <span className="item-name">2 Toppings</span>
-                      <div className="item-line" />
-                      <span className="item-price">$17</span>
-                    </div>
-                  </MenuItem>
-                  <MenuItem>
-                    <div className="item-info">
-                      <span className="item-name">3 Toppings</span>
-                      <div className="item-line" />
-                      <span className="item-price">$18</span>
-                    </div>
-                  </MenuItem>
-                  <MenuItem>
-                    <div className="item-info">
-                      <span className="item-name">4 Toppings</span>
-                      <div className="item-line" />
-                      <span className="item-price">$19</span>
-                    </div>
-                  </MenuItem>
-                  <MenuItem>
-                    <div className="item-info">
-                      <span className="item-name">Extra Cheese</span>
-                      <div className="item-line" />
-                      <span className="item-price">$2</span>
-                    </div>
-                  </MenuItem>
-                </div>
-              </div>
-            </div>
-
-            <h3>Signature Pizzas (Small / Large)</h3>
-            <div className="items-grid">
-              <MenuItem>
-                <div className="item-info">
-                  <span className="item-name">The Fenway</span>
-                  <div className="item-line" />
-                  <span className="item-price">$15 / $28</span>
-                </div>
-                <p className="item-desc">
-                  Marinated steak tips, sausage, onion, peppers.
-                </p>
-              </MenuItem>
-              <MenuItem>
-                <div className="item-info">
-                  <span className="item-name">The Bomb</span>
-                  <div className="item-line" />
-                  <span className="item-price">$16 / $30</span>
-                </div>
-                <p className="item-desc">
-                  Pepperoni, sausage, onion, peppers, mushrooms.
-                </p>
-              </MenuItem>
-              <MenuItem>
-                <div className="item-info">
-                  <span className="item-name">Spinach &amp; Ricotta</span>
-                  <div className="item-line" />
-                  <span className="item-price">$14 / $27.50</span>
-                </div>
-              </MenuItem>
-              <MenuItem>
-                <div className="item-info">
-                  <span className="item-name">Meat Lover</span>
-                  <div className="item-line" />
-                  <span className="item-price">$15 / $28</span>
-                </div>
-              </MenuItem>
-              <MenuItem>
-                <div className="item-info">
-                  <span className="item-name">BBQ Chicken</span>
-                  <div className="item-line" />
-                  <span className="item-price">$14 / $27</span>
-                </div>
-              </MenuItem>
-              <MenuItem>
-                <div className="item-info">
-                  <span className="item-name">Hawaiian</span>
-                  <div className="item-line" />
-                  <span className="item-price">$14 / $27</span>
-                </div>
-              </MenuItem>
-              <MenuItem>
-                <div className="item-info">
-                  <span className="item-name">Veggie</span>
-                  <div className="item-line" />
-                  <span className="item-price">$14 / $27</span>
-                </div>
-              </MenuItem>
-            </div>
-          </MenuCategory>
-        )}
-
+        {/* 5. Fried Platters */}
+{activeCategory === "Fried Platters" && (
+  <MenuCategory>
+    <h2>Fried Platters</h2>
+    <p className="category-note">Served with Tartar Sauce, Cole Slaw + Fries</p>
+    <div className="items">
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Fried Shrimp</span>
+          {/* biome-ignore lint/style/useSelfClosingElements: <explanation> */}
+          <div className="item-line"></div>
+          <span className="item-price">$23</span>
+        </div>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Chicken Finger Platter</span>
+          <div className="item-line" />
+          <span className="item-price">$17</span>
+        </div>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Fried Scallop Platter</span>
+          <div className="item-line" />
+          <span className="item-price">MP</span>
+        </div>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Fish and Chips</span>
+          <div className="item-line" />
+          <span className="item-price">$22</span>
+        </div>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Fried Calamari Platter</span>
+          <div className="item-line" />
+          <span className="item-price">$22</span>
+        </div>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Add A House Salad or Cup of Chowder</span>
+          <div className="item-line" />
+          <span className="item-price">$5</span>
+        </div>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Substitute Onion Rings</span>
+          <div className="item-line" />
+          <span className="item-price">$5</span>
+        </div>
+      </MenuItem>
+    </div>
+  </MenuCategory>
+)}
+{/* 6. Pizza */}
+{activeCategory === "Pizza" && (
+  <MenuCategory>
+    <h2>Pizza</h2>
+    <p className="category-note">Toppings: Artichoke, Anchovy, Bacon, Basil, Broccoli, Chicken, Eggplant, Diced Tomatoes, Feta, Garlic, Green Peppers, Ham, Jalapeños, Linguica, Meatball, Mushrooms, Olives, Onions, Pepperoni, Pesto Pineapple, Ricotta, Salami, Spinach, Sausage, Roasted Red Peppers</p>
+    
+    <h3>Small 10"</h3>
+    <p className="subcategory-note">Serves 1-2</p>
+    <div className="items">
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Cheese</span>
+          {/* biome-ignore lint/style/useSelfClosingElements: <explanation> */}
+          <div className="item-line"></div>
+          <span className="item-price">$11</span>
+        </div>
+        <p className="item-desc">$1 for each additional topping</p>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Gluten Free</span>
+          <div className="item-line" />
+          <span className="item-price">$7</span>
+        </div>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Extra Cheese</span>
+          <div className="item-line" />
+          <span className="item-price">$5</span>
+        </div>
+      </MenuItem>
+    </div>
+    
+    <h3>Large Rectangular</h3>
+    <p className="subcategory-note">Serves 3-4</p>
+    <div className="items">
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Cheese</span>
+          <div className="item-line" />
+          <span className="item-price">$21</span>
+        </div>
+        <p className="item-desc">$1 for each additional topping</p>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Extra Cheese</span>
+          <div className="item-line" />
+          <span className="item-price">$7</span>
+        </div>
+      </MenuItem>
+    </div>
+    
+    <h3>Specialty Pizzas</h3>
+    <p className="subcategory-note">Small/Large</p>
+    <div className="items">
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">The Fenway</span>
+          <div className="item-line" />
+          <span className="item-price">$15/$28</span>
+        </div>
+        <p className="item-desc">Mustard as base, with sausage, onion, peppers and cheese</p>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Pesto Lovers</span>
+          <div className="item-line" />
+          <span className="item-price">$15/$28</span>
+        </div>
+        <p className="item-desc">Fresh basil pesto, diced tomatoes, onions, feta + cheddar</p>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">The Big Mac</span>
+          <div className="item-line" />
+          <span className="item-price">$16/$30</span>
+        </div>
+        <p className="item-desc">Ground beef, special sauce, lettuce, pickles, onions + sesame seed crust</p>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Meat Lovers</span>
+          <div className="item-line" />
+          <span className="item-price">$15/$29</span>
+        </div>
+        <p className="item-desc">Sausage, pepperoni, bacon, meatball, linguica + ham</p>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">The Greek</span>
+          <div className="item-line" />
+          <span className="item-price">$15/$28</span>
+        </div>
+        <p className="item-desc">Spinach, garlic, roasted red peppers, black olives + feta</p>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Vegetarian</span>
+          <div className="item-line" />
+          <span className="item-price">$15/$28</span>
+        </div>
+        <p className="item-desc">All the freshest vegetables</p>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Buffalo Chicken</span>
+          <div className="item-line" />
+          <span className="item-price">$16/$30</span>
+        </div>
+        <p className="item-desc">Chicken, buffalo wing sauce + cheddar cheese served & bleu cheese dressing</p>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Kitchen Sink</span>
+          <div className="item-line" />
+          <span className="item-price">$16/$30</span>
+        </div>
+        <p className="item-desc">A little bit of everything!</p>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Tubby's Pie</span>
+          <div className="item-line" />
+          <span className="item-price">$15/$28</span>
+        </div>
+        <p className="item-desc">Ranch, chicken, bacon, crumbled bleu cheese + cheddar</p>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">BBQ Chicken</span>
+          <div className="item-line" />
+          <span className="item-price">$15/$28</span>
+        </div>
+        <p className="item-desc">BBQ sauce, sliced chicken, peppers, onions, pineapple + cheddar</p>
+      </MenuItem>
+    </div>
+  </MenuCategory>
+)}
         {/* 8. Quesadillas & Calzones */}
         {activeCategory === "Quesadillas & Calzones" && (
           <MenuCategory>
@@ -687,6 +667,13 @@ export default function MenuPage() {
                 <div className="item-info">
                   <span className="item-name">Chicken Quesadilla</span>
                   <div className="item-line" />
+                  <span className="item-price">$16</span>
+                </div>
+              </MenuItem>
+              <MenuItem>
+                <div className="item-info">
+                  <span className="item-name">Veggie Quesadilla</span>
+                  <div className="item-line" />
                   <span className="item-price">$14</span>
                 </div>
               </MenuItem>
@@ -694,205 +681,269 @@ export default function MenuPage() {
           </MenuCategory>
         )}
 
-        {/* 9. Entrées */}
-        {activeCategory === "Entrées" && (
-          <MenuCategory>
-            <h2>Entrées</h2>
-            <p className="category-note">
-              Dinners served after 4. Add a House Salad or Cup of Chowder +$5
-            </p>
-            <div className="items-grid">
-              <MenuItem>
-                <div className="item-info">
-                  <span className="item-name">Grilled Salmon</span>
-                  <div className="item-line" />
-                  <span className="item-price">$26</span>
-                </div>
-                <p className="item-desc">
-                  Salmon with a tangy sweet glaze or lemon-butter sauce.
-                </p>
-              </MenuItem>
-              <MenuItem>
-                <div className="item-info">
-                  <span className="item-name">Chicken Carbonara</span>
-                  <div className="item-line" />
-                  <span className="item-price">$25</span>
-                </div>
-                <p className="item-desc">
-                  Sautéed chicken with bacon, garlic, peas, and creamy sauce.
-                </p>
-              </MenuItem>
-              <MenuItem>
-                <div className="item-info">
-                  <span className="item-name">Chicken &amp; Eggplant</span>
-                  <div className="item-line" />
-                  <span className="item-price">$28</span>
-                </div>
-                <p className="item-desc">
-                  Layered with marinara, cheese, and herbs.
-                </p>
-              </MenuItem>
-              <MenuItem>
-                <div className="item-info">
-                  <span className="item-name">Shrimp Scampi</span>
-                  {/* biome-ignore lint/style/useSelfClosingElements: <explanation> */}
-                  <div className="item-line"></div>
-                  <span className="item-price">$24</span>
-                </div>
-                <p className="item-desc">
-                  Shrimp sautéed in white wine &amp; garlic sauce over linguine.
-                </p>
-              </MenuItem>
-              <MenuItem>
-                <div className="item-info">
-                  <span className="item-name">Piccata Shrimp or Chicken</span>
-                  {/* biome-ignore lint/style/useSelfClosingElements: <explanation> */}
-                  <div className="item-line"></div>
-                  <span className="item-price">$24</span>
-                </div>
-                <p className="item-desc">
-                  Lemon, capers, &amp; white wine sauce over pasta.
-                </p>
-              </MenuItem>
-              <MenuItem>
-                <div className="item-info">
-                  <span className="item-name">Chicken Marsala</span>
-                  <div className="item-line" />
-                  <span className="item-price">$24</span>
-                </div>
-                <p className="item-desc">
-                  Marsala wine sauce with mushrooms over chicken.
-                </p>
-              </MenuItem>
-              <MenuItem>
-                <div className="item-info">
-                  <span className="item-name">Linguine</span>
-                  <div className="item-line" />
-                  <span className="item-price">$12 / $17 / $18</span>
-                </div>
-                <p className="item-desc">
-                  Marinara, garlic &amp; butter, or Alfredo (add shrimp/chicken).
-                </p>
-              </MenuItem>
-              <MenuItem>
-                <div className="item-info">
-                  <span className="item-name">Cheese Tortellini</span>
-                  <div className="item-line" />
-                  <span className="item-price">$21</span>
-                </div>
-                <p className="item-desc">
-                  Served with Alfredo, pesto cream, or marinara.
-                </p>
-              </MenuItem>
-              <MenuItem>
-                <div className="item-info">
-                  <span className="item-name">Baked Cod</span>
-                  <div className="item-line" />
-                  <span className="item-price">$21</span>
-                </div>
-                <p className="item-desc">
-                  Fresh Atlantic cod topped with seasoned breadcrumbs.
-                </p>
-              </MenuItem>
-              <MenuItem>
-                <div className="item-info">
-                  <span className="item-name">Grilled Bourbon Steak Tips</span>
-                  <div className="item-line" />
-                  <span className="item-price">$26</span>
-                </div>
-                <p className="item-desc">
-                  Marinated tips in a bourbon glaze, served with side of choice.
-                </p>
-              </MenuItem>
-              <MenuItem>
-                <div className="item-info">
-                  <span className="item-name">Ziti Broccoli or Ziti Primavera</span>
-                  <div className="item-line" />
-                  <span className="item-price">$21</span>
-                </div>
-                <p className="item-desc">
-                  Light sauce with fresh veggies &amp; ziti pasta.
-                </p>
-              </MenuItem>
-            </div>
-          </MenuCategory>
-        )}
+       {/* 7. Entree */}
+{activeCategory === "Entree" && (
+  <MenuCategory>
+    <h2>Entree</h2>
+    <p className="category-note">Dinners Served After 4 Add A House Salad Or Cup Of Chowder + $5</p>
+    <div className="items">
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Grilled Salmon</span>
+          {/* biome-ignore lint/style/useSelfClosingElements: <explanation> */}
+          <div className="item-line"></div>
+          <span className="item-price">$26</span>
+        </div>
+        <p className="item-desc">Served in a lemon ginger sauce with rice pilaf & today's vegetable</p>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Chicken Carbonara</span>
+          <div className="item-line" />
+          <span className="item-price">$23</span>
+        </div>
+        <p className="item-desc">Sautéed chicken with bacon, garlic, peas cream, tossed with cheese tortellini</p>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Pan Seared Cod</span>
+          <div className="item-line" />
+          <span className="item-price">$25</span>
+        </div>
+        <p className="item-desc">Fresh cod served with a light spiced pineapple glaze, rice pilaf + vegetables</p>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Shrimp Scampi</span>
+          <div className="item-line" />
+          <span className="item-price">$24</span>
+        </div>
+        <p className="item-desc">Jumbo shrimp sautéed with garlic, wine, butter, tomatoes + linguine, finished with lemon + basil</p>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Piccata Shrimp Or Chicken</span>
+          <div className="item-line" />
+          <span className="item-price">$24</span>
+        </div>
+        <p className="item-desc">Sauteed in a lemon, caper garlic butter sauce served with rice & vegetable</p>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Lasagna </span>
+          <div className="item-line" />
+          <span className="item-price">$15/$16</span>
+        </div>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Chicken Marsala</span>
+          <div className="item-line" />
+          <span className="item-price">$25</span>
+        </div>
+        <p className="item-desc">Served over linguini in a fresh mushroom marsala wine sauce</p>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Chicken Parmesan</span>
+          <div className="item-line" />
+          <span className="item-price">$25</span>
+        </div>
+        <p className="item-desc">Breaded with marinara, cheese over linguine</p>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Eggplant Parmesan</span>
+          <div className="item-line" />
+          <span className="item-price">$23</span>
+        </div>
+        <p className="item-desc">Breaded with marinara, cheese over linguine</p>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Veal Parmesan</span>
+          <div className="item-line" />
+          <span className="item-price">$26</span>
+        </div>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Combo Chicken & Eggplant</span>
+          <div className="item-line" />
+          <span className="item-price">$28</span>
+        </div>
+        <p className="item-desc">Breaded with marinara, cheese over linguine</p>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Baked Cod</span>
+          <div className="item-line" />
+          <span className="item-price">$24</span>
+        </div>
+        <p className="item-desc">Fresh cod topped with a ritz cracker + garlic butter crust, served with rice + vegetable</p>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Grilled Swordfish</span>
+          <div className="item-line" />
+          <span className="item-price">$25</span>
+        </div>
+        <p className="item-desc">Grilled, marinated swordfish steak served with rice + veggie</p>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Grilled Bourbon Steak Tips</span>
+          <div className="item-line" />
+          <span className="item-price">$29</span>
+        </div>
+        <p className="item-desc">Homemade bourbon glaze served with today's potato + veggie</p>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">New York Strip</span>
+          <div className="item-line" />
+          <span className="item-price">$28</span>
+        </div>
+        <p className="item-desc">12 oz. New York strip served with today's potato + veggie</p>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Ziti Broccoli Or Ziti Primavera</span>
+          <div className="item-line" />
+          <span className="item-price">$21</span>
+        </div>
+        <p className="item-desc">Both served in a thick creamy garlic sauce</p>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Mussels Over Pasta</span>
+          <div className="item-line" />
+          <span className="item-price">$21</span>
+        </div>
+        <p className="item-desc">Pesto cream, marinara or creamy garlic sauce</p>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Baked Scallops</span>
+          <div className="item-line" />
+          <span className="item-price">MP</span>
+        </div>
+        <p className="item-desc">Day boat scallops topped with ritz cracker+ garlic butter crust served with rice and vegetable</p>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Pan Seared Scallops</span>
+          <div className="item-line" />
+          <span className="item-price">MP</span>
+        </div>
+        <p className="item-desc">Day boat scallops chef's choice</p>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Linguine</span>
+          <div className="item-line" />
+          <span className="item-price">$12/$7/$18/$18</span>
+        </div>
+        <p className="item-desc">Marinara or butter / meat sauce / alfredo / meatballs</p>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Cheese Tortellini</span>
+          <div className="item-line" />
+          <span className="item-price">$21</span>
+        </div>
+        <p className="item-desc">Served with marinara, alfredo, or pesto cream</p>
+      </MenuItem>
+    </div>
+  </MenuCategory>
+)}
 
-        {/* 10. Substitutions & Sides */}
-        {activeCategory === "Sides" && (
-          <MenuCategory>
-            <h2>Substitutions &amp; Sides</h2>
-            <div className="items-grid">
-              <MenuItem>
-                <div className="item-info">
-                  <span className="item-name">Chicken</span>
-                  <div className="item-line" />
-                  <span className="item-price">$6</span>
-                </div>
-              </MenuItem>
-              <MenuItem>
-                <div className="item-info">
-                  <span className="item-name">Shrimp</span>
-                  <div className="item-line" />
-                  <span className="item-price">$9</span>
-                </div>
-              </MenuItem>
-              <MenuItem>
-                <div className="item-info">
-                  <span className="item-name">Swordfish</span>
-                  <div className="item-line" />
-                  <span className="item-price">$9</span>
-                </div>
-              </MenuItem>
-              <MenuItem>
-                <div className="item-info">
-                  <span className="item-name">Scallops</span>
-                  <div className="item-line" />
-                  <span className="item-price">$10</span>
-                </div>
-              </MenuItem>
-              <MenuItem>
-                <div className="item-info">
-                  <span className="item-name">Salmon</span>
-                  <div className="item-line" />
-                  <span className="item-price">$9</span>
-                </div>
-              </MenuItem>
-              {/* Sides */}
-              <MenuItem>
-                <div className="item-info">
-                  <span className="item-name">Vegetable of the Day</span>
-                  <div className="item-line" />
-                  <span className="item-price">$2</span>
-                </div>
-              </MenuItem>
-              <MenuItem>
-                <div className="item-info">
-                  <span className="item-name">French Fries</span>
-                  <div className="item-line" />
-                  <span className="item-price">$2</span>
-                </div>
-              </MenuItem>
-              <MenuItem>
-                <div className="item-info">
-                  <span className="item-name">Garlic Mash</span>
-                  <div className="item-line" />
-                  <span className="item-price">$3</span>
-                </div>
-              </MenuItem>
-              <MenuItem>
-                <div className="item-info">
-                  <span className="item-name">Cheese Tortellini</span>
-                  <div className="item-line" />
-                  <span className="item-price">MP</span>
-                </div>
-                <p className="item-desc">
-                  Ask your server for current pricing.
-                </p>
-              </MenuItem>
-            </div>
-          </MenuCategory>
-        )}
+     {/* 8. Substitution Prices */}
+{activeCategory === "Substitution Prices" && (
+  <MenuCategory>
+    <h2>Substitution Prices</h2>
+    <div className="items">
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Chicken</span>
+          {/* biome-ignore lint/style/useSelfClosingElements: <explanation> */}
+          <div className="item-line"></div>
+          <span className="item-price">$8</span>
+        </div>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Shrimp</span>
+          <div className="item-line" />
+          <span className="item-price">$12</span>
+        </div>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Steak Tips</span>
+          <div className="item-line" />
+          <span className="item-price">$16</span>
+        </div>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Swordfish</span>
+          <div className="item-line" />
+          <span className="item-price">$15</span>
+        </div>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Scallops</span>
+          <div className="item-line" />
+          <span className="item-price">MP</span>
+        </div>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Salmon</span>
+          <div className="item-line" />
+          <span className="item-price">$15</span>
+        </div>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Vegetable Of The Day</span>
+          <div className="item-line" />
+          <span className="item-price">$5</span>
+        </div>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">French Fries</span>
+          <div className="item-line" />
+          <span className="item-price">$6</span>
+        </div>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Today's Potatoes</span>
+          <div className="item-line" />
+          <span className="item-price">$6</span>
+        </div>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Onion Rings</span>
+          <div className="item-line" />
+          <span className="item-price">$7</span>
+        </div>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Cheese Tortellini</span>
+          <div className="item-line" />
+          <span className="item-price">$7</span>
+        </div>
+      </MenuItem>
+    </div>
+  </MenuCategory>
+)}
       </MenuContent>
 
       <MenuFooter>
