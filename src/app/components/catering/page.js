@@ -9,6 +9,9 @@ export default function CateringPage() {
       <SectionHeader>
         <h2> Event Services for Every Occasion</h2>
         <p>Let Laurino's Tavern bring the perfect touch to your special event with our personalized catering services. From intimate gatherings to grand celebrations, we provide fresh, locally sourced cuisine paired with impeccable service.</p>
+        <MobileCTAButton>
+          <a href="/components/moreinfo">Contact Us for More Details</a>
+        </MobileCTAButton>
       </SectionHeader>
 
       <EventTypes>
@@ -112,6 +115,41 @@ const AdditionalServices = styled.div`
   p {
     font-size: 1.2rem;
     color: ${({ theme }) => theme.colors.secondaryDark};
+  }
+`;
+
+
+const MobileCTAButton = styled.div`
+  display: none; /* Hidden by default */
+  margin-top: 1.5rem;
+  text-align: center;
+
+  a {
+    display: inline-block;
+    background: ${({ theme }) => theme.colors.primaryDark};
+    color: #fff;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    white-space: nowrap;
+
+    &:hover {
+      background: ${({ theme }) => theme.colors.bluePastel};
+    }
+  }
+
+  /* Only show on mobile */
+  @media (max-width: 768px) {
+    display: block;
+  }
+
+  @media (max-width: 480px) {
+    a {
+      font-size: 1rem;
+      padding: 0.75rem 1rem;
+    }
   }
 `;
 
