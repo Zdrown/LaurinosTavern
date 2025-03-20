@@ -1,7 +1,7 @@
 "use client"; // Only if using Next.js 13 App Router
 import React, { useState } from "react";
 import styled from "styled-components";
-import emailjs from "emailjs-com";
+import emailjs from "@emailjs/browser";
 
 export default function more() {
   const [showNotification, setShowNotification] = useState(false);
