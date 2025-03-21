@@ -350,7 +350,7 @@ export default function Header() {
           
           {/* Desktop-only links */}
           <div className="desktop-links">
-            <Link href="/components/ComingSoonOrder" className="nav-link">
+            <Link href="https://www.clover.com/online-ordering/laurinos-tavern-brewster" className="nav-link">
               Order
             </Link>
             <Link href="/components/Contact" className="nav-link">
@@ -413,7 +413,7 @@ export default function Header() {
               <FontAwesomeIcon icon={faEnvelope} className="menu-icon" />
               Contact
             </Link>
-            <Link href="/components/ComingSoonOrder" className="nav-link" onClick={toggleMenu}>
+            <Link href="https://www.clover.com/online-ordering/laurinos-tavern-brewster" className="nav-link" onClick={toggleMenu}>
               <FontAwesomeIcon icon={faUtensils} className="menu-icon" />
               Order
             </Link>
