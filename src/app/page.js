@@ -501,7 +501,7 @@ export default function HomePage() {
           <div className="hero-content">
             <h1>Welcome to Laurino&apos;s Tavern</h1>
             <p>Serving up local favorites on Cape Cod for generations</p>
-            <a href="/components/menu" className="hero-cta">Order Now</a>
+            <a href="https://www.clover.com/online-ordering/laurinos-tavern-brewster" className="hero-cta">Order Now</a>
           </div>
         </HeroSection>
 
@@ -561,7 +561,7 @@ export default function HomePage() {
             </div>
           </div>
           <div className="order-cta">
-            <a href="/components/menu" className="order-now-btn">Order Now</a>
+            <a href="https://www.clover.com/online-ordering/laurinos-tavern-brewster" className="order-now-btn">Order Now</a>
           </div>
         </CarouselSection>
         
