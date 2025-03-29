@@ -100,7 +100,7 @@ export default function ContactPage() {
             </div>
             <div className="text">
               <h3>Phone</h3>
-              <p><a href="tel:+15088966135" className="phone-link">(508) 896-6134</a></p>
+              <p><a href="tel:+15088966135" className="phone-link">(508) 896-6135</a></p>
             </div>
           </InfoCard>
 
