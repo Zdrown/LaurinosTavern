@@ -87,7 +87,7 @@ export default function ContactPage() {
             </div>
             <div className="text">
               <h3>Hours</h3>
-              <p>Mon-Thurs: 11am - 10pm<br />Fri-Sat: 11am - 10pm<br />Sunday: 11am - 10pm</p>
+              <p>Mon-Thurs: 11:30am to ~9pm<br />Fri-Sat: 12pm to ~9pm<br />Sunday: 12pm to ~9pm</p>
             </div>
           </InfoCard>
 

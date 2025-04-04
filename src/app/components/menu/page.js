@@ -49,7 +49,7 @@ export default function MenuPage() {
                 <div className="item-info">
                   <span className="item-name">Mozzarella Sticks</span>
                   <div className="item-line" />
-                  <span className="item-price">$9</span>
+                  <span className="item-price">  9$ </span>
                 </div>
                 <p className="item-desc">Served with marinara sauce.</p>
               </MenuItem>
@@ -57,7 +57,7 @@ export default function MenuPage() {
                 <div className="item-info">
                   <span className="item-name">Potato Skins</span>
                   <div className="item-line" />
-                  <span className="item-price">$11/10</span>
+                  <span className="item-price">10$/11$</span>
                 </div>
                 <p className="item-desc">
               Served with cheddar and bacon
@@ -82,7 +82,7 @@ export default function MenuPage() {
                 </div>
                 <p className="item-desc">
                 banana peppers & linguica with
-                cocktail sauce
+                marinara sauce
                 </p>
               </MenuItem>
               <MenuItem>
@@ -103,7 +103,7 @@ export default function MenuPage() {
                   <span className="item-price">$6</span>
                 </div>
                 <p className="item-desc">
-                  Classic favorite add parmesan +2$
+                  Classic favorite 
                 </p>
               </MenuItem>
               <MenuItem>
@@ -145,7 +145,7 @@ export default function MenuPage() {
                 </div>
                 <p className="item-desc">
                 4 chicken fingers, celery and a choice of
-                sauce
+                sauce (hot sauce, barbecue suace or honey mustard)
                 </p>
               </MenuItem>
             </div>
@@ -165,7 +165,7 @@ export default function MenuPage() {
                   <span className="item-price">—</span>
                 </div>
                 <p className="item-desc">
-                  Chicken ($7) Shrimp ($10), Steak Tips or Swordfish ($13), Salmon ($13)
+                  Chicken ($7) Shrimp ($10), Steak Tips (14), Swordfish ($13), Salmon ($13)
                 </p>
               </MenuItem>
               <MenuItem>
@@ -175,7 +175,7 @@ export default function MenuPage() {
                   <span className="item-price">$7</span>
                 </div>
                 <p className="item-desc">
-                iceberg, red cabbage, carrots
+                salad mix, red cabbage, carrots
                 cucumbers, cherry tomato
                 </p>
               </MenuItem>
@@ -187,7 +187,7 @@ export default function MenuPage() {
                 </div>
                 <p className="item-desc">
                 classic caesar served with
-                 cheese + homemade croutons
+                 Parmesan + homemade croutons
                 </p>
               </MenuItem>
               <MenuItem>
@@ -197,6 +197,7 @@ export default function MenuPage() {
                   <span className="item-price">$17</span>
                 </div>
                 <p className="item-desc">
+                  salad mix topped with tomato, cucumbers, roasted red peppers, pepperonchini and feta chesse
                 </p>
               </MenuItem>
               <MenuItem>
@@ -216,8 +217,8 @@ export default function MenuPage() {
                   <span className="item-price">$17</span>
                 </div>
                 <p className="item-desc">
-                greens, craisins, blue cheese
-                candied pecans
+                mesculan greens, ctopped with tomatoes, cucumbers, green apple,
+                candied pecans, and blue cheese crumble. 
                 </p>
               </MenuItem>
               <MenuItem>
@@ -227,7 +228,7 @@ export default function MenuPage() {
                   <span className="item-price">$17</span>
                 </div>
                 <p className="item-desc">
-                with salami, genoa salami &
+                mixed greens and fresh vegetables topped with genoa salami &
                 ham + provolone cheese
                 </p>
               </MenuItem>
@@ -290,6 +291,93 @@ export default function MenuPage() {
         </div>
         <p className="item-desc">Steak or chicken with onion, peppers, mushrooms</p>
       </MenuItem>
+
+    </div>
+  </MenuCategory>
+)}
+
+        {/* 4. Soups */}
+        {activeCategory === "Soups" && (
+          <MenuCategory>
+            <h2>Soups</h2>
+            <div className="items">
+              <MenuItem>
+                <div className="item-info">
+                  <span className="item-name">Clam Chowder</span>
+                  <div className="item-line" />
+                  <span className="item-price">$7 / $8.50</span>
+                </div>
+                <p className="item-desc">Cup or bowl—fresh homemade</p>
+              </MenuItem>
+              <MenuItem>
+                <div className="item-info">
+                  <span className="item-name">Baked Onion Soup Au Gratin</span>
+                  <div className="item-line" />
+                  <span className="item-price">$8</span>
+                </div>
+                <p className="item-desc">
+                  Onion infuse soup made daily.
+                </p>
+              </MenuItem>
+            </div>
+          </MenuCategory>
+        )}
+
+     {/* 4. Grinders */}
+{activeCategory === "Grinders" && (
+  <MenuCategory>
+    <h2>Grinders</h2>
+    <p className="category-note">Served with Potato Salad or Cole Slaw</p>
+    <div className="items">
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Italian Ground Sausage</span>
+          {/* biome-ignore lint/style/useSelfClosingElements: <explanation> */}
+          <div className="item-line"></div>
+          <span className="item-price">$13</span>
+        </div>
+        <p className="item-desc">With marinara sauce, cheese</p>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Sliced Meatball</span>
+          <div className="item-line" />
+          <span className="item-price">$13</span>
+        </div>
+        <p className="item-desc">With marinara sauce, cheese</p>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Veal Parmesan</span>
+          <div className="item-line" />
+          <span className="item-price">$17</span>
+        </div>
+        <p className="item-desc">With marinara sauce, cheese</p>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Eggplant</span>
+          <div className="item-line" />
+          <span className="item-price">$14</span>
+        </div>
+        <p className="item-desc">With marinara sauce, cheese</p>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Combo Grinder</span>
+          <div className="item-line" />
+          <span className="item-price">$14</span>
+        </div>
+        <p className="item-desc">Sausage, meatball with marinara sauce, cheese</p>
+      </MenuItem>
+      <MenuItem>
+        <div className="item-info">
+          <span className="item-name">Chicken Parmesan</span>
+          <div className="item-line" />
+          <span className="item-price">$16</span>
+        </div>
+        <p className="item-desc">With marinara sauce, cheese</p>
+      </MenuItem>
       <MenuItem>
         <div className="item-info">
           <span className="item-name">BLT</span>
@@ -338,92 +426,6 @@ export default function MenuPage() {
         </div>
         <p className="item-desc">With lettuce, tomato, onion + cheese</p>
       </MenuItem>
-      <MenuItem>
-        <div className="item-info">
-          <span className="item-name">Veal Parmesan</span>
-          <div className="item-line" />
-          <span className="item-price">$17</span>
-        </div>
-        <p className="item-desc">With marinara sauce, cheese</p>
-      </MenuItem>
-    </div>
-  </MenuCategory>
-)}
-
-        {/* 4. Soups */}
-        {activeCategory === "Soups" && (
-          <MenuCategory>
-            <h2>Soups</h2>
-            <div className="items">
-              <MenuItem>
-                <div className="item-info">
-                  <span className="item-name">Clam Chowder</span>
-                  <div className="item-line" />
-                  <span className="item-price">$7 / $8.50</span>
-                </div>
-                <p className="item-desc">Cup or bowl—freshly made daily.</p>
-              </MenuItem>
-              <MenuItem>
-                <div className="item-info">
-                  <span className="item-name">Baked Onion Soup Au Gratin</span>
-                  <div className="item-line" />
-                  <span className="item-price">$8</span>
-                </div>
-                <p className="item-desc">
-                  Onion infuse soup made daily.
-                </p>
-              </MenuItem>
-            </div>
-          </MenuCategory>
-        )}
-
-     {/* 4. Grinders */}
-{activeCategory === "Grinders" && (
-  <MenuCategory>
-    <h2>Grinders</h2>
-    <p className="category-note">Served with Potato Salad or Cole Slaw</p>
-    <div className="items">
-      <MenuItem>
-        <div className="item-info">
-          <span className="item-name">Italian Ground Sausage</span>
-          {/* biome-ignore lint/style/useSelfClosingElements: <explanation> */}
-          <div className="item-line"></div>
-          <span className="item-price">$13</span>
-        </div>
-        <p className="item-desc">With marinara sauce, cheese</p>
-      </MenuItem>
-      <MenuItem>
-        <div className="item-info">
-          <span className="item-name">Sliced Meatball</span>
-          <div className="item-line" />
-          <span className="item-price">$13</span>
-        </div>
-        <p className="item-desc">With marinara sauce, cheese</p>
-      </MenuItem>
-      <MenuItem>
-        <div className="item-info">
-          <span className="item-name">Combo Grinder</span>
-          <div className="item-line" />
-          <span className="item-price">$14</span>
-        </div>
-        <p className="item-desc">Sausage, meatball with marinara sauce, cheese</p>
-      </MenuItem>
-      <MenuItem>
-        <div className="item-info">
-          <span className="item-name">Chicken Parmesan</span>
-          <div className="item-line" />
-          <span className="item-price">$16</span>
-        </div>
-        <p className="item-desc">With marinara sauce, cheese</p>
-      </MenuItem>
-      <MenuItem>
-        <div className="item-info">
-          <span className="item-name">Eggplant</span>
-          <div className="item-line" />
-          <span className="item-price">$14</span>
-        </div>
-        <p className="item-desc">With marinara sauce, cheese</p>
-      </MenuItem>
     </div>
   </MenuCategory>
 )}
@@ -441,6 +443,7 @@ export default function MenuPage() {
           <div className="item-line"></div>
           <span className="item-price">$23</span>
         </div>
+        <p className="item-desc">6 jumbo shrimp breaded and deep fried</p>
       </MenuItem>
       <MenuItem>
         <div className="item-info">
@@ -448,6 +451,7 @@ export default function MenuPage() {
           <div className="item-line" />
           <span className="item-price">$17</span>
         </div>
+        <p className="item-desc">deep fried with your choice of dipping sauce</p>
       </MenuItem>
       <MenuItem>
         <div className="item-info">
@@ -455,6 +459,7 @@ export default function MenuPage() {
           <div className="item-line" />
           <span className="item-price">MP</span>
         </div>
+        <p className="item-desc">Local day boat scallops</p>
       </MenuItem>
       <MenuItem>
         <div className="item-info">
@@ -462,6 +467,7 @@ export default function MenuPage() {
           <div className="item-line" />
           <span className="item-price">$22</span>
         </div>
+        <p className="item-desc">Fish and chips battered and fried</p>
       </MenuItem>
       <MenuItem>
         <div className="item-info">
@@ -469,6 +475,7 @@ export default function MenuPage() {
           <div className="item-line" />
           <span className="item-price">$22</span>
         </div>
+        <p className="item-desc">tube and tenacle squid breaded and fried</p>
       </MenuItem>
       <MenuItem>
         <div className="item-info">
@@ -509,7 +516,7 @@ export default function MenuPage() {
         <div className="item-info">
           <span className="item-name">Gluten Free</span>
           <div className="item-line" />
-          <span className="item-price">$7</span>
+          <span className="item-price">$7 additonal charge</span>
         </div>
       </MenuItem>
       <MenuItem>
@@ -530,7 +537,7 @@ export default function MenuPage() {
           <div className="item-line" />
           <span className="item-price">$21</span>
         </div>
-        <p className="item-desc">$1 for each additional topping</p>
+        <p className="item-desc">$1.50 for each additional topping</p>
       </MenuItem>
       <MenuItem>
         <div className="item-info">
@@ -655,6 +662,7 @@ export default function MenuPage() {
                   <div className="item-line" />
                   <span className="item-price">$10</span>
                 </div>
+                <p className="item-desc"> rice and cheese with fresh vegetables</p>
               </MenuItem>
               <MenuItem>
                 <div className="item-info">
@@ -669,6 +677,7 @@ export default function MenuPage() {
                   <div className="item-line" />
                   <span className="item-price">$16</span>
                 </div>
+                <p className="item-desc"> chicken, mexi rice and cheese with fresh vegetables</p>
               </MenuItem>
               <MenuItem>
                 <div className="item-info">
@@ -676,6 +685,7 @@ export default function MenuPage() {
                   <div className="item-line" />
                   <span className="item-price">$14</span>
                 </div>
+                <p className="item-desc">rice and cheese with fresh vegetables</p>
               </MenuItem>
             </div>
           </MenuCategory>
@@ -734,6 +744,7 @@ export default function MenuPage() {
           <div className="item-line" />
           <span className="item-price">$15/$16</span>
         </div>
+        <p className="item-desc"> price based on choice of cheese or meat</p>
       </MenuItem>
       <MenuItem>
         <div className="item-info">
@@ -749,7 +760,7 @@ export default function MenuPage() {
           <div className="item-line" />
           <span className="item-price">$25</span>
         </div>
-        <p className="item-desc">Breaded with marinara, cheese over linguine</p>
+        <p className="item-desc">Breaded with marinara, topped with cheese over linguine</p>
       </MenuItem>
       <MenuItem>
         <div className="item-info">
@@ -757,7 +768,7 @@ export default function MenuPage() {
           <div className="item-line" />
           <span className="item-price">$23</span>
         </div>
-        <p className="item-desc">Breaded with marinara, cheese over linguine</p>
+        <p className="item-desc">Breaded with marinara, topped with cheese over linguine</p>
       </MenuItem>
       <MenuItem>
         <div className="item-info">
@@ -765,6 +776,7 @@ export default function MenuPage() {
           <div className="item-line" />
           <span className="item-price">$26</span>
         </div>
+        <p className="item-desc">Breaded with marinara, topped with cheese over linguine</p>
       </MenuItem>
       <MenuItem>
         <div className="item-info">
@@ -780,7 +792,7 @@ export default function MenuPage() {
           <div className="item-line" />
           <span className="item-price">$24</span>
         </div>
-        <p className="item-desc">Fresh cod topped with a ritz cracker + garlic butter crust, served with rice + vegetable</p>
+        <p className="item-desc">Fresh cod topped with a ritz cracker, garlic butter, served with rice + vegetable</p>
       </MenuItem>
       <MenuItem>
         <div className="item-info">
@@ -842,7 +854,7 @@ export default function MenuPage() {
         <div className="item-info">
           <span className="item-name">Linguine</span>
           <div className="item-line" />
-          <span className="item-price">$12/$7/$18/$18</span>
+          <span className="item-price">$12/$18</span>
         </div>
         <p className="item-desc">Marinara or butter / meat sauce / alfredo / meatballs</p>
       </MenuItem>
@@ -868,28 +880,28 @@ export default function MenuPage() {
           <span className="item-name">Chicken</span>
           {/* biome-ignore lint/style/useSelfClosingElements: <explanation> */}
           <div className="item-line"></div>
-          <span className="item-price">$8</span>
+          <span className="item-price">$7</span>
         </div>
       </MenuItem>
       <MenuItem>
         <div className="item-info">
           <span className="item-name">Shrimp</span>
           <div className="item-line" />
-          <span className="item-price">$12</span>
+          <span className="item-price">$10</span>
         </div>
       </MenuItem>
       <MenuItem>
         <div className="item-info">
           <span className="item-name">Steak Tips</span>
           <div className="item-line" />
-          <span className="item-price">$16</span>
+          <span className="item-price">$14</span>
         </div>
       </MenuItem>
       <MenuItem>
         <div className="item-info">
           <span className="item-name">Swordfish</span>
           <div className="item-line" />
-          <span className="item-price">$15</span>
+          <span className="item-price">$13</span>
         </div>
       </MenuItem>
       <MenuItem>
@@ -903,7 +915,7 @@ export default function MenuPage() {
         <div className="item-info">
           <span className="item-name">Salmon</span>
           <div className="item-line" />
-          <span className="item-price">$15</span>
+          <span className="item-price">$13</span>
         </div>
       </MenuItem>
       <MenuItem>
