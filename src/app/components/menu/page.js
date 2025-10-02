@@ -78,7 +78,7 @@ export default function MenuPage() {
                   <span className="item-price">$10.00</span>
                 </div>
                 <p className="item-desc">
-                  A classic “stuffie”: chopped quahog, bell pepper, onion &
+                  A classic “stuffie”; chopped quahog, bell pepper, onion &
                   linguica in a toasted shell crowned with Old Bay-butter
                   crumbs.
                 </p>

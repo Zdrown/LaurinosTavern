@@ -3,12 +3,39 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import emailjs from "@emailjs/browser";
 
-export default function more() {
+export default function More() {
   const [showNotification, setShowNotification] = useState(false);
+
+  // Update hidden time input when dropdowns change
+  const updateTimeInput = (hour, minute, period) => {
+    if (hour && minute && period) {
+      let hour24 = parseInt(hour);
+      if (period === 'PM' && hour24 !== 12) {
+        hour24 += 12;
+      } else if (period === 'AM' && hour24 === 12) {
+        hour24 = 0;
+      }
+      const timeValue = `${hour24.toString().padStart(2, '0')}:${minute}`;
+      document.getElementById('eventTime').value = timeValue;
+    }
+  };
+
+  // Make updateTimeInput available globally for onChange handlers
+  if (typeof window !== 'undefined') {
+    window.updateTimeInput = updateTimeInput;
+  }
 
   // Form submission handler (reusing your emailjs config)
   const handleSubmit = (e) => {
     e.preventDefault();
+    
+    // Debug: Log form data
+    const formData = new FormData(e.target);
+    console.log("Form Data:");
+    for (let [key, value] of formData.entries()) {
+      console.log(`${key}: ${value}`);
+    }
+    
     emailjs
       .sendForm(
         "service_zugs63p",
@@ -34,7 +61,7 @@ export default function more() {
         <h1>Request More Information</h1>
         <p>
           Have questions, special requests, or want to learn more about our services?
-          Fill out the form below, and we’ll get back to you shortly.
+          Fill out the form below, and we'll get back to you shortly.
         </p>
       </HeaderWrapper>
 
@@ -80,14 +107,55 @@ export default function more() {
             <option value="Wedding">Wedding</option>
             <option value="Corporate Event">Corporate Event</option>
             <option value="Family Gathering">Family Gathering</option>
-            <option value="Family Gathering">Other</option>
-
+            <option value="Other">Other</option>
           </select>
         </FormGroup>
 
         <FormGroup>
           <label htmlFor="eventDate">Event Date</label>
           <input type="date" id="eventDate" name="eventDate" required />
+        </FormGroup>
+
+        <FormGroup>
+          <label htmlFor="eventTime">Event Time</label>
+          <TimeInputWrapper>
+            <select
+              id="eventHour"
+              name="eventHour"
+              required
+              onChange={(e) => updateTimeInput(e.target.value, document.getElementById('eventMinute').value, document.getElementById('eventPeriod').value)}
+            >
+              <option value="">Hour</option>
+              {[...Array(12)].map((_, i) => {
+                const hour = i + 1;
+                return <option key={hour} value={hour.toString().padStart(2, '0')}>{hour}</option>;
+              })}
+            </select>
+            <TimeSeparator>:</TimeSeparator>
+            <select
+              id="eventMinute"
+              name="eventMinute"
+              required
+              onChange={(e) => updateTimeInput(document.getElementById('eventHour').value, e.target.value, document.getElementById('eventPeriod').value)}
+            >
+              <option value="">Min</option>
+              {[...Array(60)].map((_, i) => {
+                const minute = i.toString().padStart(2, '0');
+                return <option key={minute} value={minute}>{minute}</option>;
+              })}
+            </select>
+            <select
+              id="eventPeriod"
+              name="eventPeriod"
+              required
+              onChange={(e) => updateTimeInput(document.getElementById('eventHour').value, document.getElementById('eventMinute').value, e.target.value)}
+            >
+              <option value="">AM/PM</option>
+              <option value="AM">AM</option>
+              <option value="PM">PM</option>
+            </select>
+            <input type="hidden" id="eventTime" name="eventTime" />
+          </TimeInputWrapper>
         </FormGroup>
 
         <FormGroup>
@@ -111,7 +179,7 @@ export default function more() {
 
         {showNotification && (
           <Notification>
-            Thank you! We’ve received your request and will be in touch soon.
+            Thank you! We've received your request and will be in touch soon.
           </Notification>
         )}
       </FormContainer>
@@ -186,6 +254,18 @@ const FormGroup = styled.div`
     padding: 0.5rem;
     font-size: 1rem;
     outline: none;
+    background: white;
+    cursor: pointer;
+  }
+  
+  input[type="time"] {
+    min-width: 150px;
+    cursor: text;
+  }
+  
+  input[type="time"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    opacity: 1;
   }
 
   textarea {
@@ -218,4 +298,30 @@ const Notification = styled.p`
   border-radius: 4px;
   margin-top: 1rem;
   text-align: center;
+`;
+
+const TimeInputWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  
+  select {
+    flex: 1;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid ${({ theme }) => theme.colors.secondaryDark};
+    border-radius: 4px;
+    background: white;
+    cursor: pointer;
+  }
+  
+  select:last-of-type {
+    flex: 0.8;
+  }
+`;
+
+const TimeSeparator = styled.span`
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: ${({ theme }) => theme.colors.primaryDark};
 `;
