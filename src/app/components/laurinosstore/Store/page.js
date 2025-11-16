@@ -14,7 +14,9 @@ const categories = ["All", "Gear", "T-Shirts", "Sweatshirts", "Hats"];
 
 /* Product data with multiple images and sizes for clothing */
 const sampleProducts = [
-  // Gear
+
+  
+
   {
     id: 1,
     category: "Gear",
@@ -23,15 +25,19 @@ const sampleProducts = [
     price: "$10",
     description: "High-quality koozie from Laurino's. Perfect for everyday use ."
   },
+
+
   {
     id: 2,
     category: "Gear",
     name: "Premium Bag",
     images: ["/Bag.svg", "/Bagback3.svg"],
-    price: "$20",
+    price: "$30",
     description: "Premium beach tote."
   },
-  // T-Shirts
+ 
+
+
   {
     id: 3,
     category: "T-Shirts",
@@ -56,7 +62,7 @@ const sampleProducts = [
     category: "Sweatshirts",
     name: "Cozy Laurinos Sweatshirt",
     images: ["/Sweatshirtfront.svg", "/Sweatshirtback.svg"],
-    price: "$35",
+    price: "$40",
     description: "Premium Laurinos sweatshirt.",
     sizes: ["Small", "Medium", "Large", "XL"]
   },
