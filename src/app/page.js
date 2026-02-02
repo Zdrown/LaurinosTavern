@@ -453,6 +453,76 @@ const CTAButton = styled.button`
   }
 `;
 
+// EVENTS SECTION
+const EventsSection = styled.section`
+  background: ${({ theme }) => theme.colors.background || '#FAF9F6'};
+  color: ${({ theme }) => theme.colors.primaryDark};
+  padding: 4rem 2rem;
+  border-top: 2px solid ${({ theme }) => theme.colors.tertiaryDark};
+  border-bottom: 2px solid ${({ theme }) => theme.colors.tertiaryDark};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h2 {
+    font-family: 'Aloja';
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: ${({ theme }) => theme.colors.tertiaryDark};
+  }
+
+  .week-header {
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: ${({ theme }) => theme.colors.secondaryDark};
+  }
+
+  .events-list {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .event-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid ${({ theme }) => theme.colors.secondaryDark};
+    text-align: left;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+      flex-direction: column;
+      text-align: center;
+      gap: 0.5rem;
+    }
+  }
+
+  .event-date {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: ${({ theme }) => theme.colors.tertiaryDark};
+    flex: 1;
+    text-transform: uppercase;
+  }
+
+  .event-details {
+    flex: 2;
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+`;
+
 // Simple loading fallback component
 const LoadingFallback = () => (
   <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
@@ -525,6 +595,41 @@ export default function HomePage() {
               />
             </div>
           </AboutSection>
+
+          <EventsSection>
+            <h2>Upcoming Events</h2>
+            <div className="week-header">Week of Monday 2/2</div>
+            <div className="events-list">
+              <div className="event-item">
+                <div className="event-date">Monday 2/2</div>
+                <div className="event-details">Live Music from Josh Ayala</div>
+              </div>
+              <div className="event-item">
+                <div className="event-date">Tuesday 2/3</div>
+                <div className="event-details">Locals Night: Buy a Large Pizza Get a Small Half Off</div>
+              </div>
+              <div className="event-item">
+                <div className="event-date">Wednesday 2/4</div>
+                <div className="event-details">Early Bird Specials $15 Entrees 4-6pm</div>
+              </div>
+              <div className="event-item">
+                <div className="event-date">Thursday 2/5</div>
+                <div className="event-details">Early Bird Specials $15 Entrees 4-6pm</div>
+              </div>
+              <div className="event-item">
+                <div className="event-date">Friday 2/6</div>
+                <div className="event-details">Live Music from Bounce 7pm-9pm</div>
+              </div>
+              <div className="event-item">
+                <div className="event-date">Saturday 2/7</div>
+                <div className="event-details">Live Music from The Grab Brothers 7-9pm</div>
+              </div>
+              <div className="event-item">
+                <div className="event-date">Sunday 2/8</div>
+                <div className="event-details">Super Bowl Sunday Take Out Pizza and Appetizer Specials</div>
+              </div>
+            </div>
+          </EventsSection>
 
           <CarouselSection>
           <h2>Try Our Favorites</h2>
