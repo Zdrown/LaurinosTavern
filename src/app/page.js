@@ -1102,8 +1102,6 @@ export default function HomePage() {
             <AboutSlideshow />
           </AboutSection>
 
-          <EventCalendar />
-
           <CarouselSection>
           <h2>Try Our Favorites</h2>
           <div className="carousel">
@@ -1141,7 +1139,8 @@ export default function HomePage() {
             <a href="https://www.clover.com/online-ordering/laurinos-tavern-brewster" className="order-now-btn">Order Now</a>
           </div>
         </CarouselSection>
-        
+
+          <EventCalendar />
 
         <CateringSection>
           <div className="content">
